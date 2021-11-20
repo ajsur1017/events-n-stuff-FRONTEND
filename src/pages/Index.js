@@ -44,7 +44,6 @@ function Index(props) {
     <p className="labels">Ending</p> <p className="indexInfo">{events.endTime}</p>
     <p className="labels">Location</p> <p className="indexInfo">{events.location}</p>
     <p className="labels">Description</p><p className="indexInfo">{events.description}</p>
-
     </div></div>
     ));
   };
