@@ -27,10 +27,10 @@ function Show(props) {
       <h1>{events.name}</h1>
       <h2>{new Date(events.date).toDateString()}</h2>
       <p>{events.description}</p>
-      <p>{events.cost}</p>
-      <p>{events.attendees}</p>
-      <img className="imageShow" src={events.image} alt={events.name}/>
-      <button id="delete" onClick={removeEvent}>
+      <p>Cost: {events.cost}</p>
+      <p>Attendees: {events.attendees.length} ({events.attendees.join(', ')})</p>
+      <img className="imageShow" src={events.image} alt={events.name}/><br/>
+      <button className="button" id="delete" onClick={removeEvent}>
         Delete Event
       </button>
       <div className="eventForm">
@@ -77,7 +77,7 @@ function Show(props) {
           placeholder="image"
           onChange={handleChange}
         />
-        <input type="submit" value="Update Event" />
+        <input type="submit" className="button" value="Update Event" />
       </form></div>
     </div> 
   )

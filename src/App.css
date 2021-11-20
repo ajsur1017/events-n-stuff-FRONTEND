@@ -29,10 +29,28 @@
   text-align: center;
 }
 
+.eventForm{
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.formCreate{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.button{
+  background-color: #b00b69;
+  color: white;
+}
+
 form{
   display: flex;
   flex-direction: column;
-  max-width: 500px;
+  width: 500px;
+  text-align: center;
 }
 
 .dateInfoForm{
@@ -42,6 +60,7 @@ form{
 
 .imageShow{
   max-width: 500px;
+  border: solid 4px #b00b69;
 }
 
 .content{

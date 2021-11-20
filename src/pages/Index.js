@@ -56,6 +56,7 @@ function Index(props) {
   };
   return (
     <section>
+    <h3>Post New Event</h3>
     <div className="formCreate">
       <form onSubmit={handleSubmit}>
         <input
@@ -100,7 +101,7 @@ function Index(props) {
           placeholder="image"
           onChange={handleChange}
         />
-        <input type="submit" value="Create Event" />
+        <input type="submit" className="button" value="Create Event" />
       </form></div><div className="content">
       {props.event ? loaded() : loading()}</div>
     </section>
