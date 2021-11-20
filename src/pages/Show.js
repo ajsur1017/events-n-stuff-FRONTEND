@@ -49,7 +49,7 @@ function Show(props) {
           placeholder="event date"
           onChange={handleChange}
         />
-                <input
+        <input
           type="text"
           value={editForm.location}
           name="location"

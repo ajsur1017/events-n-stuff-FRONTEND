@@ -73,7 +73,7 @@ function Index(props) {
           placeholder="event date"
           onChange={handleChange}
         />
-                <input
+        <input
           type="text"
           value={newForm.location}
           name="location"
