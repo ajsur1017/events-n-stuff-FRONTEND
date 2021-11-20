@@ -21,15 +21,18 @@
 }
 
 .labels{
-  background-color: gray;
+  background-color: rgb(185, 185, 185);
   padding: 4px;
   border-radius: 8px;
   border: 1px solid black;
+  width: 100px;
+  text-align: center;
 }
 
 form{
   display: flex;
   flex-direction: column;
+  max-width: 500px;
 }
 
 .dateInfoForm{
@@ -37,19 +40,40 @@ form{
   flex-direction: row;
 }
 
+.content{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
 .indexInfoDiv{
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 0fr)
 }
 
 .events{
   text-align: left;
+  border: 1px solid black;
+  border-radius: 8px;
+  max-width: 400px;
+  margin-top: 20px;
 }
 
 .indexInfo{
   background-color: white;
   border: 1px solid black;
   padding: 4px;
+  border-radius: 8px;
+  width: 120px;
+  text-align: center;
+}
+
+.indexInfoImage{
+  width: 200px;
+  height: 150px;
+}
+
+.indexInfoDesc{
+  background-color: white;
   border-radius: 8px;
 }
 

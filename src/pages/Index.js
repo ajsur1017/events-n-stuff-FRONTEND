@@ -38,13 +38,16 @@ function Index(props) {
     return props.event.map((events) => (
       <div key={events._id} className="events">
         <Link to={`/events/${events._id}`}><h1>{events.name}</h1></Link>
+    <p className="indexInfoDesc">{events.description}</p>
+    <img className="indexInfoImage" src={events.image}/>
     <div className="indexInfoDiv">
-    <p className="labels">Date</p><p className="indexInfo">{new Date(events.date).toDateString()}</p>
-    <p className="labels">Starting</p> <p className="indexInfo">{events.startTime}</p>
-    <p className="labels">Ending</p> <p className="indexInfo">{events.endTime}</p>
     <p className="labels">Location</p> <p className="indexInfo">{events.location}</p>
-    <p className="labels">Description</p><p className="indexInfo">{events.description}</p>
-    </div></div>
+    <p className="labels">Price</p> <p className="indexInfo">{events.cost}</p>
+    <p className="labels">Date</p><p className="indexInfo">{events.date}</p>
+    <p className="labels">Start Time</p> <p className="indexInfo">{events.startTime}</p>
+    <p className="labels">Attendees</p> <p className="indexInfo">ATTENDEE LENGTH HERE placeholder</p>
+   </div>
+    </div>
     ));
   };
 
@@ -61,7 +64,7 @@ function Index(props) {
           name="name"
           placeholder="event name"
           onChange={handleChange}
-        /><div className="dateInfoForm">
+        />
         <input
           type="date"
           value={newForm.date}
@@ -71,23 +74,16 @@ function Index(props) {
         />
                 <input
           type="text"
-          value={newForm.startTime}
-          name="startTime"
-          placeholder="start time"
-          onChange={handleChange}
-        />
-                <input
-          type="text"
-          value={newForm.endTime}
-          name="endTime"
-          placeholder="end time"
-          onChange={handleChange}
-        /></div>
-                <input
-          type="text"
           value={newForm.location}
           name="location"
           placeholder="location"
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          value={newForm.cost}
+          name="cost"
+          placeholder="price"
           onChange={handleChange}
         />
                 <input
@@ -105,8 +101,8 @@ function Index(props) {
           onChange={handleChange}
         />
         <input type="submit" value="Create Event" />
-      </form></div>
-      {props.event ? loaded() : loading()}
+      </form></div><div className="content">
+      {props.event ? loaded() : loading()}</div>
     </section>
   );
 }
