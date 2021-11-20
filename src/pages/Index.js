@@ -41,11 +41,11 @@ function Index(props) {
     <p className="indexInfoDesc">{events.description}</p>
     <img className="indexInfoImage" src={events.image}/>
     <div className="indexInfoDiv">
+    <p className="labels">Organizer</p> <p className="indexInfo">{events.username}</p>
     <p className="labels">Location</p> <p className="indexInfo">{events.location}</p>
     <p className="labels">Price</p> <p className="indexInfo">{events.cost}</p>
-    <p className="labels">Date</p><p className="indexInfo">{events.date}</p>
-    <p className="labels">Start Time</p> <p className="indexInfo">{events.startTime}</p>
-    <p className="labels">Attendees</p> <p className="indexInfo">ATTENDEE LENGTH HERE placeholder</p>
+    <p className="labels">Date</p><p className="indexInfo">{new Date(events.date).toDateString()}</p>
+    <p className="labels">Attendees</p> <p className="indexInfo">{events.attendees.length}</p>
    </div>
     </div>
     ));

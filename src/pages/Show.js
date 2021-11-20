@@ -26,9 +26,10 @@ function Show(props) {
     <div>
       <h1>{events.name}</h1>
       <h2>{new Date(events.date).toDateString()}</h2>
-      <h3>{events.startTime} - {events.endTime}</h3>
       <p>{events.description}</p>
-      <img src={events.image} alt={events.name}/>
+      <p>{events.cost}</p>
+      <p>{events.attendees}</p>
+      <img className="imageShow" src={events.image} alt={events.name}/>
       <button id="delete" onClick={removeEvent}>
         Delete Event
       </button>
@@ -46,20 +47,6 @@ function Show(props) {
           value={editForm.date}
           name="date"
           placeholder="event date"
-          onChange={handleChange}
-        />
-                <input
-          type="text"
-          value={editForm.startTime}
-          name="startTime"
-          placeholder="start time"
-          onChange={handleChange}
-        />
-                <input
-          type="text"
-          value={editForm.endTime}
-          name="endTime"
-          placeholder="end time"
           onChange={handleChange}
         />
                 <input

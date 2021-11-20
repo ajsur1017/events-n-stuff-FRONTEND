@@ -40,6 +40,10 @@ form{
   flex-direction: row;
 }
 
+.imageShow{
+  max-width: 500px;
+}
+
 .content{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -47,15 +51,17 @@ form{
 
 .indexInfoDiv{
   display: grid;
-  grid-template-columns: repeat(2, 0fr)
+  grid-template-columns: repeat(2, 0fr);
+  justify-content: center;
 }
 
 .events{
-  text-align: left;
+  text-align: center;
   border: 1px solid black;
   border-radius: 8px;
   max-width: 400px;
   margin-top: 20px;
+  background-color: rgb(230, 230, 230);
 }
 
 .indexInfo{
@@ -70,10 +76,10 @@ form{
 .indexInfoImage{
   width: 200px;
   height: 150px;
+  border: 1px solid black
 }
 
 .indexInfoDesc{
-  background-color: white;
   border-radius: 8px;
 }
 
