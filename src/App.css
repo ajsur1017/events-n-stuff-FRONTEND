@@ -7,6 +7,78 @@
   pointer-events: none;
 }
 
+.nav{
+  background-color: black;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 5px;
+}
+
+.nav > a{
+  text-decoration: none;
+}
+
+.labels{
+  background-color: gray;
+  padding: 4px;
+  border-radius: 8px;
+  border: 1px solid black;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+}
+
+.dateInfoForm{
+  display: flex;
+  flex-direction: row;
+}
+
+.indexInfoDiv{
+  display: flex;
+  flex-direction: column;
+}
+
+.events{
+  text-align: left;
+}
+
+.indexInfo{
+  background-color: white;
+  border: 1px solid black;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.headerLinks{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding-right: 5px;
+}
+
+.login{
+  padding-right: 10px;
+  color: white;
+  text-decoration: underline;
+}
+
+.title{
+  font-size: 24px;
+  text-decoration: none;
+  color: white;
+  font-style: italic;
+  padding-left: 5px;
+}
+
+.signup{
+  color: white;
+  text-decoration: underline;}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

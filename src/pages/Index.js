@@ -38,10 +38,14 @@ function Index(props) {
     return props.event.map((events) => (
       <div key={events._id} className="events">
         <Link to={`/events/${events._id}`}><h1>{events.name}</h1></Link>
-        <h2>{new Date(events.date).toDateString()}</h2>
-      <h3>{events.startTime} - {events.endTime}</h3>
-      <p>{events.location}</p>
-      </div>
+    <div className="indexInfoDiv">
+    <p className="labels">Date</p><p className="indexInfo">{new Date(events.date).toDateString()}</p>
+    <p className="labels">Starting</p> <p className="indexInfo">{events.startTime}</p>
+    <p className="labels">Ending</p> <p className="indexInfo">{events.endTime}</p>
+    <p className="labels">Location</p> <p className="indexInfo">{events.location}</p>
+    <p className="labels">Description</p><p className="indexInfo">{events.description}</p>
+
+    </div></div>
     ));
   };
 
@@ -58,7 +62,7 @@ function Index(props) {
           name="name"
           placeholder="event name"
           onChange={handleChange}
-        />
+        /><div className="dateInfoForm">
         <input
           type="date"
           value={newForm.date}
@@ -79,7 +83,7 @@ function Index(props) {
           name="endTime"
           placeholder="end time"
           onChange={handleChange}
-        />
+        /></div>
                 <input
           type="text"
           value={newForm.location}
