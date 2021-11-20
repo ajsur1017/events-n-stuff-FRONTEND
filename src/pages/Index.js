@@ -39,7 +39,7 @@ function Index(props) {
       <div key={events._id} className="events">
         <Link to={`/events/${events._id}`}><h1>{events.name}</h1></Link>
     <p className="indexInfoDesc">{events.description}</p>
-    <img className="indexInfoImage" src={events.image}/>
+    <img className="indexInfoImage" src={events.image} alt="its broken"/>
     <div className="indexInfoDiv">
     <p className="labels">Organizer</p> <p className="indexInfo">{events.username}</p>
     <p className="labels">Location</p> <p className="indexInfo">{events.location}</p>
