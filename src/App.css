@@ -128,6 +128,12 @@ form{
   color: white;
   text-decoration: underline;}
 
+.logout{
+  color: white;
+  text-decoration: underline;
+  padding-left: 5px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -156,4 +162,10 @@ form{
   to {
     transform: rotate(360deg);
   }
+}
+
+/* SIGNUP FORM */
+#inputSignup {
+  padding: 5px;
+  margin: 8px;
 }
