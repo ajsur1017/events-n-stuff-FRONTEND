@@ -6,7 +6,7 @@ import Show from "../pages/Show";
 function Main(props) {
   const [event , setEvent] = useState(null);
 
-  const URL = "https://events-n-stuff.herokuapp.com/events";
+  const URL = "https://events-n-stuff.herokuapp.com/events/";
 
   const getEvent = async () => {
     const response = await fetch(URL);
