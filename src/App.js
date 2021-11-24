@@ -34,6 +34,7 @@ function App() {
             {/* <Route path="/dashboard" render={(rp => <h1>Dashboard</h1>)} /> */}
           </Switch>
         </main>
+
         <Main />
 
       </div>

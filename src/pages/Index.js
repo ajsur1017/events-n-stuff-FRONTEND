@@ -14,6 +14,10 @@ function Index(props) {
     user: ""
   });
 
+  const [search, setSearch] = useState("")
+
+  const [userSearch, setUserSearch] = useState("")
+
   const handleChange = (event) => {
     setNewForm({ ...newForm, [event.target.name]: event.target.value });
   };
@@ -35,7 +39,12 @@ function Index(props) {
   };
 
   const loaded = () => {
-    return props.event.map((events) => (
+    return props.event.filter(foundEvent => {
+        if(search === "") {
+            return foundEvent
+        }
+        else if (foundEvent.name.toLowerCase().includes(search.toLowerCase()) || foundEvent.location.toLowerCase().includes(search.toLowerCase())){
+            return foundEvent}}).map((events) => (
       <div key={events._id} className="events">
         <Link to={`/events/${events._id}`}><h1>{events.name}</h1></Link>
     <p className="indexInfoDesc">{events.description}</p>
@@ -56,6 +65,9 @@ function Index(props) {
   };
   return (
     <section>
+    <div>
+    <input placeholder="Search Events..." onChange={event => setSearch(event.target.value)}/>
+  </div>
     <h3>Post New Event</h3>
     <div className="formCreate">
       <form onSubmit={handleSubmit}>

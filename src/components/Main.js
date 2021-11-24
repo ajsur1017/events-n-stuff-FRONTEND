@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import Index from "../pages/Index";
 import Show from "../pages/Show";
 
+
 function Main(props) {
   const [event , setEvent] = useState(null);
 
@@ -49,7 +50,7 @@ function Main(props) {
     <main>
       <Switch>
         <Route exact path="/">
-          <Index event={event} createEvent={createEvent} />
+        <Index event={event} createEvent={createEvent}/>
         </Route>
         <Route
           path="/events/:id"

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import React from "react"
 import { GlobalCtx } from "../App"
 
+
 function Header(props) {
   const { gState, setGState } = React.useContext(GlobalCtx)
 
@@ -27,7 +28,6 @@ function Header(props) {
         </Link>
         {gState.token ? logout : null}
       </div>
-
     </nav>
   );
 }
