@@ -62,6 +62,13 @@ function Main(props) {
             />
           )}
         />
+        <Route path="/events/myevents">
+            <MyEvents 
+            event={event}
+            updateEvent={updateEvent}
+            deleteEvent={deleteEvent}
+            />
+        </Route>
       </Switch>
     </main>
   );

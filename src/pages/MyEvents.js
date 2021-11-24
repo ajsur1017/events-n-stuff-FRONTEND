@@ -4,8 +4,9 @@ import { Link } from "react-router-dom"
 function MyEvent(props) {
 
   const loaded = () => {
-    return ()
-
+    return props.event.map((events) => (
+      <h1>props.event.name</h1>
+    ));
   };
 
   const loading = () => {
@@ -13,7 +14,9 @@ function MyEvent(props) {
   };
   
   return (
-
+    <section>
+      {props.event ? loaded() : loading()};
+    </section>
   )
 }
 
