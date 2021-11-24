@@ -5,9 +5,9 @@ function MyEvent(props) {
 
   const loaded = () => {
     return props.event.map((events) => (
-      <h1>props.event.name</h1>
-    ));
-  };
+      <h1>{events.name}</h1>
+    ))
+  }
 
   const loading = () => {
     return <h1>Loading...</h1>;
@@ -15,7 +15,7 @@ function MyEvent(props) {
   
   return (
     <section>
-      {props.event ? loaded() : loading()};
+      {props.event ? loaded() : loading()}
     </section>
   )
 }

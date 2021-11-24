@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom";
 import Index from "../pages/Index";
 import Show from "../pages/Show";
+import MyEvents from "../pages/MyEvents";
 
 function Main(props) {
   const [event , setEvent] = useState(null);
@@ -51,6 +52,13 @@ function Main(props) {
         <Route exact path="/">
           <Index event={event} createEvent={createEvent} />
         </Route>
+        <Route exact path="/events/me">
+          <MyEvents
+            event={event}
+            updateEvent={updateEvent}
+            deleteEvent={deleteEvent}
+          />
+        </Route>
         <Route
           path="/events/:id"
           render={(rp) => (
@@ -62,13 +70,6 @@ function Main(props) {
             />
           )}
         />
-        <Route path="/events/myevents">
-            <MyEvents 
-            event={event}
-            updateEvent={updateEvent}
-            deleteEvent={deleteEvent}
-            />
-        </Route>
       </Switch>
     </main>
   );
