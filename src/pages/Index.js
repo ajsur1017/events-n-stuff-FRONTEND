@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {Link} from "react-router-dom"
+import React from "react"
 
 function Index(props) {
   const [newForm, setNewForm] = useState({
@@ -11,12 +12,11 @@ function Index(props) {
     description: "",
     cost: "",
     image: "",
-    user: ""
+    username: "",
+    attendees: ""
   });
 
   const [search, setSearch] = useState("")
-
-  const [userSearch, setUserSearch] = useState("")
 
   const handleChange = (event) => {
     setNewForm({ ...newForm, [event.target.name]: event.target.value });
@@ -34,41 +34,14 @@ function Index(props) {
         description: "",
         cost: "",
         image: "",
-        user: "",
+        username: "",
+        attendees: ","
     });
   };
 
-  const loaded = () => {
-    return props.event.filter(foundEvent => {
-        if(search === "") {
-            return foundEvent
-        }
-        else if (foundEvent.name.toLowerCase().includes(search.toLowerCase()) || foundEvent.location.toLowerCase().includes(search.toLowerCase())){
-            return foundEvent}}).map((events) => (
-      <div key={events._id} className="events">
-        <Link to={`/events/${events._id}`}><h1>{events.name}</h1></Link>
-    <p className="indexInfoDesc">{events.description}</p>
-    <img className="indexInfoImage" src={events.image} alt="its broken"/>
-    <div className="indexInfoDiv">
-    <p className="labels">Organizer</p> <p className="indexInfo">{events.username}</p>
-    <p className="labels">Location</p> <p className="indexInfo">{events.location}</p>
-    <p className="labels">Price</p> <p className="indexInfo">{events.cost}</p>
-    <p className="labels">Date</p><p className="indexInfo">{new Date(events.date).toDateString()}</p>
-    <p className="labels">Attendees</p> <p className="indexInfo">{events.attendees.length}</p>
-   </div>
-    </div>
-    ));
-  };
-
-  const loading = () => {
-    return <h1>Loading...</h1>;
-  };
-  return (
-    <section>
-    <div>
-    <input placeholder="Search Events..." onChange={event => setSearch(event.target.value)}/>
-  </div>
-    <h3>Post New Event</h3>
+  const createOption = () => {
+   return <>
+<h1>Create Event</h1>
     <div className="formCreate">
       <form onSubmit={handleSubmit}>
         <input
@@ -114,7 +87,47 @@ function Index(props) {
           onChange={handleChange}
         />
         <input type="submit" className="button" value="Create Event" />
-      </form></div><div className="content">
+      </form></div>
+      </>
+  }
+
+
+  const loaded = () => {
+    return props.event.filter(foundEvent => {
+        if(search === "") {
+            return foundEvent;    
+        }
+        else if (foundEvent.name.toLowerCase().includes(search.toLowerCase()) || foundEvent.location.toLowerCase().includes(search.toLowerCase())){
+            return foundEvent}}).map((events) => (
+      <div key={events._id} className="events">
+        <Link to={`/events/${events._id}`}><h1>{events.name}</h1></Link>
+    <p className="indexInfoDesc">{events.description}</p>
+    <img className="indexInfoImage" src={events.image} alt={events.name}/>
+    <div className="indexInfoDiv">
+    <p className="labels">Organizer</p> <p className="indexInfo">{events.username}</p>
+    <p className="labels">Location</p> <p className="indexInfo">{events.location}</p>
+    <p className="labels">Price</p> <p className="indexInfo">{events.cost}</p>
+    <p className="labels">Date</p><p className="indexInfo">{new Date(events.date).toDateString()}</p>
+    <p className="labels">Attendees</p> <p className="indexInfo">{events.attendees.length}</p>
+
+   </div>
+    </div>
+    ));
+  };
+
+  const loading = () => {
+    return <h1>Loading...</h1>;
+  };
+  return (
+    <section>
+    <div className="indexHeader">
+    {props.user ? createOption() : null}
+  </div>
+  <div className="browseEvents">
+  <h1>Browse Events</h1>
+  <input className="searchBar" placeholder="Search by Title or Location" onChange={event => setSearch(event.target.value)}/>
+  </div>
+<div className="content">
       {props.event ? loaded() : loading()}</div>
     </section>
   );

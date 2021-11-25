@@ -35,13 +35,19 @@ const Signup = (props) => {
 
     }
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <input id="inputSignup" type="text" name="username" value={form.username} onChange={handleChange}/>
-                <input id="inputSignup" type="password" name="password" value={form.password} onChange={handleChange}/>
-                <input type="submit" value="Sign Up" />
+        <>
+        <h1 className="loginWelcome">Welcome to Events n' Stuff</h1>
+        <p>Sign up for free today.</p>
+        <div className="authBox">
+            <form className="loginBox" onSubmit={handleSubmit}>
+                <input id="inputSignup" placeholder="Create Username" type="text" name="username" value={form.username} onChange={handleChange}/>
+                <input id="inputSignup" placeholder="Create Password" type="password" name="password" value={form.password} onChange={handleChange}/>
+                <div className="inputButton">
+                <input className="loginButton" type="submit" value="Sign Up" /></div>
             </form>
-        </div>
+        </div> 
+        <p>Already have an account? Login <a href="/login">here</a></p>
+        </>
     )
 }
 export default Signup

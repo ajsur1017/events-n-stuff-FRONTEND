@@ -37,7 +37,6 @@
 
 .formCreate{
     display: flex;
-    justify-content: center;
     margin-top: 10px;
 }
 
@@ -132,6 +131,45 @@ form{
   color: white;
   text-decoration: underline;
   padding-left: 5px;
+}
+
+.authBox{
+  display: flex;
+  justify-content: center;
+  background-color: white;
+}
+
+.loginBox{
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  border: solid black 2px;
+  padding: 20px;
+
+}
+
+.loginButton{
+  background-color: #b00b69;
+  width: 100px;
+  height: 30px;
+  color: white;
+}
+
+.searchBar{
+  border-radius: 10px;
+}
+
+.loginWelcome{
+  margin-top: 100px;
+}
+
+.indexHeader{
+  text-align: left;
+  align-content: left;
+}
+
+.browseEvents{
+  text-align: left;
 }
 
 @media (prefers-reduced-motion: no-preference) {

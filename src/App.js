@@ -8,7 +8,6 @@ import Login from "./pages/Login"
 
 export const GlobalCtx = React.createContext(null)
 
-
 function App() {
 
   const [gState, setGState] = React.useState({ url: "https://events-n-stuff.herokuapp.com", token: null })
@@ -34,8 +33,7 @@ function App() {
             {/* <Route path="/dashboard" render={(rp => <h1>Dashboard</h1>)} /> */}
           </Switch>
         </main>
-        <Main />
-
+        <Main user={gState.token}/>
       </div>
     </GlobalCtx.Provider>
   );
