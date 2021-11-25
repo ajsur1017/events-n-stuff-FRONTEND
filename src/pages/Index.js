@@ -35,7 +35,7 @@ function Index(props) {
         cost: "",
         image: "",
         username: "",
-        attendees: ","
+        attendees: ""
     });
   };
 
