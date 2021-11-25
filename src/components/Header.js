@@ -9,19 +9,19 @@ function Header(props) {
     <Link>
       <div className="logout" onClick={() => {
         window.localStorage.removeItem("token")
-        setGState({...gState, token : null})
+        setGState({ ...gState, token: null })
       }}>Logout</div>
     </Link>)
 
   const login = (
     <>
-  <Link to="/login">
-  <div className="login">Login</div>
-  </Link>
-  <Link to="/signup">
-  <div className="signup">Sign Up</div>
-  </Link>
-</>)
+      <Link to="/login">
+        <div className="login">Login</div>
+      </Link>
+      <Link to="/signup">
+        <div className="signup">Sign Up</div>
+      </Link>
+    </>)
 
   return (
     <nav className="nav">

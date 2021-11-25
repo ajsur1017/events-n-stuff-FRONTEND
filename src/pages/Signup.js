@@ -7,7 +7,10 @@ const Signup = (props) => {
 
     const blank = {
         username: "",
-        password: ""
+        password: "",
+        firstName: "",
+        lastName: "",
+        email: "",
     }
 
     const [form, setForm] = React.useState(blank)
@@ -18,13 +21,13 @@ const Signup = (props) => {
 
     const handleSubmit = (thing) => {
         thing.preventDefault()
-        const {username, password} = form
+        const {username, password, firstName, lastName, email} = form
         fetch(`${url}/auth/signup`, {
             method: "post",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({username, password})
+            body: JSON.stringify({username, password, firstName, lastName, email})
         })
         .then(response => response.json())
         .then(data => {
@@ -42,6 +45,9 @@ const Signup = (props) => {
             <form className="loginBox" onSubmit={handleSubmit}>
                 <input id="inputSignup" placeholder="Create Username" type="text" name="username" value={form.username} onChange={handleChange}/>
                 <input id="inputSignup" placeholder="Create Password" type="password" name="password" value={form.password} onChange={handleChange}/>
+                <input id="inputSignup" placeholder="First Name" type="text" name="firstName" value={form.firstName} onChange={handleChange}/>
+                <input id="inputSignup" placeholder="Last Name" type="text" name="lastName" value={form.lastName} onChange={handleChange}/>
+                <input id="inputSignup" placeholder="Email" type="email" name="email" value={form.email} onChange={handleChange}/>
                 <div className="inputButton">
                 <input className="loginButton" type="submit" value="Sign Up" /></div>
             </form>
