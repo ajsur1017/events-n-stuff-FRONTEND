@@ -43,13 +43,6 @@ function Show(props) {
     />
     <input
       type="text"
-      value={editForm.organizer}
-      name="organizer"
-      placeholder="organizer"
-      onChange={handleChange}
-    />
-    <input
-      type="text"
       value={editForm.location}
       name="location"
       placeholder="location"
@@ -92,7 +85,7 @@ function Show(props) {
       <p>Cost: {events.cost}</p>
       <img className="imageShow" src={events.image} alt={events.name}/><br/>
       <div className="indexHeader">
-      {props.user ? eventEdit() : null}
+      {props.user === events.organizer ? eventEdit() : null}
   </div>
     </div> 
   )

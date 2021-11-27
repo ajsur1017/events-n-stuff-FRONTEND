@@ -19,6 +19,8 @@ const Login = (props) => {
     const handleSubmit = (thing) => {
         thing.preventDefault()
         const {username, password} = form
+        window.localStorage.removeItem("username")
+        window.localStorage.setItem("username", username)
         fetch(`${url}/auth/login`, {
             method: "post",
             headers: {
@@ -28,9 +30,9 @@ const Login = (props) => {
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data)
             window.localStorage.setItem("token", JSON.stringify(data))
-            setGState({...gState, token: data.token})
+            const loggedInUser = window.localStorage.getItem("username")
+            setGState({...gState, token: data.token, username: loggedInUser})
             setForm(blank)
             props.history.push("/")
         })

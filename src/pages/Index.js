@@ -12,7 +12,7 @@ function Index(props) {
     description: "",
     cost: "",
     image: "",
-    organizer: "",
+    organizer: props.user,
   });
 
   const [search, setSearch] = useState("")
@@ -57,13 +57,6 @@ function Index(props) {
           onChange={handleChange}
         />
         <input
-          type="string"
-          value={newForm.organizer}
-          name="organizer"
-          placeholder="organizer"
-          onChange={handleChange}
-        />
-        <input
           type="text"
           value={newForm.location}
           name="location"
@@ -104,7 +97,6 @@ function Index(props) {
         else if (foundEvent.name.toLowerCase().includes(search.toLowerCase()) || foundEvent.location.toLowerCase().includes(search.toLowerCase())){
             return foundEvent}}).map((events) => (
       <div key={events._id} className="events">
-          {console.log(events)}
         <Link to={`/events/${events._id}`}><h1>{events.name}</h1></Link>
     <p className="indexInfoDesc">{events.description}</p>
     <img className="indexInfoImage" src={events.image} alt={events.name}/>

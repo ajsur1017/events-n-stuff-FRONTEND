@@ -9,7 +9,8 @@ function Header(props) {
     <Link>
       <div className="logout" onClick={() => {
         window.localStorage.removeItem("token")
-        setGState({ ...gState, token: null })
+        window.localStorage.removeItem("username")
+        setGState({ ...gState, token: null, username: null})
       }}>Logout</div>
     </Link>)
 

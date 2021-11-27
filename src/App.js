@@ -10,14 +10,14 @@ export const GlobalCtx = React.createContext(null)
 
 function App() {
 
-  const [gState, setGState] = React.useState({ url: "https://events-n-stuff.herokuapp.com", token: null })
+  const [gState, setGState] = React.useState({ url: "https://events-n-stuff.herokuapp.com", token: null, username: null})
 
   //SEEING IF ALREADY LOGED IN
   React.useEffect(() => {
     const token = JSON.parse(window.localStorage.getItem("token"))
-    console.log(token)
+    const user = window.localStorage.getItem("username")
     if (token){
-      setGState({...gState, token: token.token })
+      setGState({...gState, token: token.token, username: user})
     }
   }, []) 
 
@@ -33,7 +33,7 @@ function App() {
             {/* <Route path="/dashboard" render={(rp => <h1>Dashboard</h1>)} /> */}
           </Switch>
         </main>
-        <Main user={gState.token}/>
+        <Main user={gState.username}/>
       </div>
     </GlobalCtx.Provider>
   );
