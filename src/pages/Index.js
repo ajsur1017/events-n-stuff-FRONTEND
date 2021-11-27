@@ -12,8 +12,7 @@ function Index(props) {
     description: "",
     cost: "",
     image: "",
-    username: "",
-    attendees: ""
+    organizer: "",
   });
 
   const [search, setSearch] = useState("")
@@ -34,8 +33,7 @@ function Index(props) {
         description: "",
         cost: "",
         image: "",
-        username: "",
-        attendees: ""
+        organizer: "",
     });
   };
 
@@ -56,6 +54,13 @@ function Index(props) {
           value={newForm.date}
           name="date"
           placeholder="event date"
+          onChange={handleChange}
+        />
+        <input
+          type="string"
+          value={newForm.organizer}
+          name="organizer"
+          placeholder="organizer"
           onChange={handleChange}
         />
         <input
@@ -91,7 +96,6 @@ function Index(props) {
       </>
   }
 
-
   const loaded = () => {
     return props.event.filter(foundEvent => {
         if(search === "") {
@@ -100,16 +104,15 @@ function Index(props) {
         else if (foundEvent.name.toLowerCase().includes(search.toLowerCase()) || foundEvent.location.toLowerCase().includes(search.toLowerCase())){
             return foundEvent}}).map((events) => (
       <div key={events._id} className="events">
+          {console.log(events)}
         <Link to={`/events/${events._id}`}><h1>{events.name}</h1></Link>
     <p className="indexInfoDesc">{events.description}</p>
     <img className="indexInfoImage" src={events.image} alt={events.name}/>
     <div className="indexInfoDiv">
-    <p className="labels">Organizer</p> <p className="indexInfo">{events.username}</p>
+    <p className="labels">Organizer</p> <p className="indexInfo">{events.organizer}</p>
     <p className="labels">Location</p> <p className="indexInfo">{events.location}</p>
     <p className="labels">Price</p> <p className="indexInfo">{events.cost}</p>
     <p className="labels">Date</p><p className="indexInfo">{new Date(events.date).toDateString()}</p>
-    <p className="labels">Attendees</p> <p className="indexInfo">{events.attendees.length}</p>
-
    </div>
     </div>
     ));
