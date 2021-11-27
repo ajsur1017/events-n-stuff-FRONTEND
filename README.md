@@ -2,6 +2,14 @@
 
 This project was created by Tom Ames, Nick Davis, and Anthony Surace. 
 
+Looking for Backend? Check out the <a href="https://github.com/ajsur1017/events-n-stuff-backend">Backend Repo</a>.
+
+Looking for Trello? Check out the <a href="https://trello.com/b/ejpanVcd/event-track-app">Events n' Stuff Trello Board</a>.
+
+Looking for Heroku? Check out the <a href="https://events-n-stuff.herokuapp.com/events/">Events Database</a>.
+
+Want to get to your Event-Planning? Check out <a href="https://events-n-stuff.netlify.app/">Events n' Stuff</a>!
+
 ## Mission
 
 Create an application that allows logged-in users to create events, publicize events, edit events, and delete events. Any user is able to access the site freely and view details on any events that have been posted to the site.
