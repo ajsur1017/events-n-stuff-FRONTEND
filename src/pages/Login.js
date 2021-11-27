@@ -18,30 +18,24 @@ const Login = (props) => {
 
     const handleSubmit = (thing) => {
         thing.preventDefault()
-        const { username, password } = form
-        // need to check is password is correct and then do something about it
-        // OR is that done withen the fetch function since the auth takes place on the backend
-
-        if (form.password === password) {
-            fetch(`${url}/auth/login`, {
-                method: "post",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ username, password })
-            })
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data)
-                    window.localStorage.setItem("token", JSON.stringify(data))
-                    setGState({ ...gState, token: data.token })
-                    setForm(blank)
-                    props.history.push("/")
-                })
-        } else {
-            props.history.push("/login")
-        }
-
+        const {username, password} = form
+        window.localStorage.removeItem("username")
+        window.localStorage.setItem("username", username)
+        fetch(`${url}/auth/login`, {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({username, password})
+        })
+        .then(response => response.json())
+        .then(data => {
+            window.localStorage.setItem("token", JSON.stringify(data))
+            const loggedInUser = window.localStorage.getItem("username")
+            setGState({...gState, token: data.token, username: loggedInUser})
+            setForm(blank)
+            props.history.push("/")
+        })
 
     }
     return (
