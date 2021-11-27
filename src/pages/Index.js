@@ -106,7 +106,6 @@ function Index(props) {
       }
     }).map((events) => (
       <div key={events._id} className="events">
-        {console.log(events)}
         <Link to={`/events/${events._id}`}><h1>{events.name}</h1></Link>
         <p className="indexInfoDesc">{events.description}</p>
         <img className="indexInfoImage" src={events.image} alt={events.name} />
