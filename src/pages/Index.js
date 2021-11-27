@@ -25,75 +25,75 @@ function Index(props) {
     event.preventDefault();
     props.createEvent(newForm);
     setNewForm({
-        name: "",
-        date: "",
-        startTime: "",
-        endTime: "",
-        location: "",
-        description: "",
-        cost: "",
-        image: "",
-        organizer: "",
+      name: "",
+      date: "",
+      startTime: "",
+      endTime: "",
+      location: "",
+      description: "",
+      cost: "",
+      image: "",
+      organizer: "",
     });
   };
 
   const createOption = () => {
-   return <>
-<h1>Create Event</h1>
-    <div className="formCreate">
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={newForm.name}
-          name="name"
-          placeholder="event name"
-          onChange={handleChange}
-        />
-        <input
-          type="date"
-          value={newForm.date}
-          name="date"
-          placeholder="event date"
-          onChange={handleChange}
-        />
-        <input
-          type="string"
-          value={newForm.organizer}
-          name="organizer"
-          placeholder="organizer"
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          value={newForm.location}
-          name="location"
-          placeholder="location"
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          value={newForm.cost}
-          name="cost"
-          placeholder="price"
-          onChange={handleChange}
-        />
-                <input
-          type="text"
-          value={newForm.description}
-          name="description"
-          placeholder="description"
-          onChange={handleChange}
-        />
-                <input
-          type="text"
-          value={newForm.image}
-          name="image"
-          placeholder="image"
-          onChange={handleChange}
-        />
-        <input type="submit" className="button" value="Create Event" />
-      </form></div>
-      </>
+    return <>
+      <h1>Create Event</h1>
+      <div className="formCreate">
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            value={newForm.name}
+            name="name"
+            placeholder="event name"
+            onChange={handleChange}
+          />
+          <input
+            type="date"
+            value={newForm.date}
+            name="date"
+            placeholder="event date"
+            onChange={handleChange}
+          />
+          <input
+            type="string"
+            value={newForm.organizer}
+            name="organizer"
+            placeholder="organizer"
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            value={newForm.location}
+            name="location"
+            placeholder="location"
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            value={newForm.cost}
+            name="cost"
+            placeholder="price"
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            value={newForm.description}
+            name="description"
+            placeholder="description"
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            value={newForm.image}
+            name="image"
+            placeholder="image"
+            onChange={handleChange}
+          />
+          <input type="submit" className="button" value="Create Event" />
+        </form></div>
+    </>
   }
 
   const loaded = () => {
@@ -106,17 +106,17 @@ function Index(props) {
       }
     }).map((events) => (
       <div key={events._id} className="events">
-          {console.log(events)}
+        {console.log(events)}
         <Link to={`/events/${events._id}`}><h1>{events.name}</h1></Link>
-    <p className="indexInfoDesc">{events.description}</p>
-    <img className="indexInfoImage" src={events.image} alt={events.name}/>
-    <div className="indexInfoDiv">
-    <p className="labels">Organizer</p> <p className="indexInfo">{events.organizer}</p>
-    <p className="labels">Location</p> <p className="indexInfo">{events.location}</p>
-    <p className="labels">Price</p> <p className="indexInfo">{events.cost}</p>
-    <p className="labels">Date</p><p className="indexInfo">{new Date(events.date).toDateString()}</p>
-   </div>
-    </div>
+        <p className="indexInfoDesc">{events.description}</p>
+        <img className="indexInfoImage" src={events.image} alt={events.name} />
+        <div className="indexInfoDiv">
+          <p className="labels">Organizer</p> <p className="indexInfo">{events.organizer}</p>
+          <p className="labels">Location</p> <p className="indexInfo">{events.location}</p>
+          <p className="labels">Price</p> <p className="indexInfo">{events.cost}</p>
+          <p className="labels">Date</p><p className="indexInfo">{new Date(events.date).toDateString()}</p>
+        </div>
+      </div>
     ));
   };
 
