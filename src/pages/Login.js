@@ -13,7 +13,7 @@ const Login = (props) => {
     const [form, setForm] = React.useState(blank)
 
     const handleChange = (thing) => {
-        setForm({...form, [thing.target.name]: thing.target.value})
+        setForm({ ...form, [thing.target.name]: thing.target.value })
     }
 
     const handleSubmit = (thing) => {
@@ -40,17 +40,17 @@ const Login = (props) => {
     }
     return (
         <>
-        <h1 className="loginWelcome">Welcome to Events n' Stuff</h1>
-        <p>Login with your account below.</p>
-        <div className="authBox">
-            <form className="loginBox" onSubmit={handleSubmit}>
-                <input id="inputSignup" placeholder="Enter Username" type="text" name="username" value={form.username} onChange={handleChange}/>
-                <input id="inputSignup" placeholder="Enter Password" type="password" name="password" value={form.password} onChange={handleChange}/>
-                <div className="inputButton">
-                <input className="loginButton" type="submit" value="Login" /></div>
-            </form>
-        </div>
-        <p>Don't have an account? Sign up <a href="/signup">here</a></p>
+            <h1 className="loginWelcome">Welcome to Events n' Stuff</h1>
+            <p>Login with your account below.</p>
+            <div className="authBox">
+                <form className="loginBox" onSubmit={handleSubmit}>
+                    <input id="inputSignup" placeholder="Enter Username" type="text" name="username" value={form.username} onChange={handleChange} />
+                    <input id="inputSignup" placeholder="Enter Password" type="password" name="password" value={form.password} onChange={handleChange} />
+                    <div className="inputButton">
+                        <input className="loginButton" type="submit" value="Login" /></div>
+                </form>
+            </div>
+            <p>Don't have an account? Sign up <a href="/signup">here</a></p>
         </>
     )
 }

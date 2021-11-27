@@ -4,7 +4,7 @@ import Index from "../pages/Index";
 import Show from "../pages/Show";
 
 function Main(props) {
-  const [event , setEvent] = useState(null);
+  const [event, setEvent] = useState(null);
 
   const URL = "https://events-n-stuff.herokuapp.com/events/";
 
@@ -51,7 +51,7 @@ function Main(props) {
     <main>
       <Switch>
         <Route exact path="/">
-          <Index user={props.user} event={event} createEvent={createEvent} updateEvent={updateEvent}/>
+          <Index user={props.user} event={event} createEvent={createEvent} updateEvent={updateEvent} />
         </Route>
         <Route
           path="/events/:id"

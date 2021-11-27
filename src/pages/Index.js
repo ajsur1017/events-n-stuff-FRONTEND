@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 import React from "react"
 
 function Index(props) {
@@ -25,15 +25,15 @@ function Index(props) {
     event.preventDefault();
     props.createEvent(newForm);
     setNewForm({
-        name: "",
-        date: "",
-        startTime: "",
-        endTime: "",
-        location: "",
-        description: "",
-        cost: "",
-        image: "",
-        organizer: "",
+      name: "",
+      date: "",
+      startTime: "",
+      endTime: "",
+      location: "",
+      description: "",
+      cost: "",
+      image: "",
+      organizer: "",
     });
   };
 
@@ -91,22 +91,24 @@ function Index(props) {
 
   const loaded = () => {
     return props.event.filter(foundEvent => {
-        if(search === "") {
-            return foundEvent;    
-        }
-        else if (foundEvent.name.toLowerCase().includes(search.toLowerCase()) || foundEvent.location.toLowerCase().includes(search.toLowerCase())){
-            return foundEvent}}).map((events) => (
+      if (search === "") {
+        return foundEvent;
+      }
+      else if (foundEvent.name.toLowerCase().includes(search.toLowerCase()) || foundEvent.location.toLowerCase().includes(search.toLowerCase())) {
+        return foundEvent
+      }
+    }).map((events) => (
       <div key={events._id} className="events">
         <Link to={`/events/${events._id}`}><h1>{events.name}</h1></Link>
-    <p className="indexInfoDesc">{events.description}</p>
-    <img className="indexInfoImage" src={events.image} alt={events.name}/>
-    <div className="indexInfoDiv">
-    <p className="labels">Organizer</p> <p className="indexInfo">{events.organizer}</p>
-    <p className="labels">Location</p> <p className="indexInfo">{events.location}</p>
-    <p className="labels">Price</p> <p className="indexInfo">{events.cost}</p>
-    <p className="labels">Date</p><p className="indexInfo">{new Date(events.date).toDateString()}</p>
-   </div>
-    </div>
+        <p className="indexInfoDesc">{events.description}</p>
+        <img className="indexInfoImage" src={events.image} alt={events.name} />
+        <div className="indexInfoDiv">
+          <p className="labels">Organizer</p> <p className="indexInfo">{events.organizer}</p>
+          <p className="labels">Location</p> <p className="indexInfo">{events.location}</p>
+          <p className="labels">Price</p> <p className="indexInfo">{events.cost}</p>
+          <p className="labels">Date</p><p className="indexInfo">{new Date(events.date).toDateString()}</p>
+        </div>
+      </div>
     ));
   };
 
@@ -115,15 +117,15 @@ function Index(props) {
   };
   return (
     <section>
-    <div className="indexHeader">
-    {props.user ? createOption() : null}
-  </div>
-  <div className="browseEvents">
-  <h1>Browse Events</h1>
-  <input className="searchBar" placeholder="Search by Title or Location" onChange={event => setSearch(event.target.value)}/>
-  </div>
-<div className="content">
-      {props.event ? loaded() : loading()}</div>
+      <div className="indexHeader">
+        {props.user ? createOption() : null}
+      </div>
+      <div className="browseEvents">
+        <h1>Browse Events</h1>
+        <input className="searchBar" placeholder="Search by Title or Location" onChange={event => setSearch(event.target.value)} />
+      </div>
+      <div className="content">
+        {props.event ? loaded() : loading()}</div>
     </section>
   );
 }

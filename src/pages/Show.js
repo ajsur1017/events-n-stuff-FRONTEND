@@ -1,4 +1,4 @@
-import {useState} from "react"
+import { useState } from "react"
 
 function Show(props) {
   const id = props.match.params.id
@@ -74,8 +74,9 @@ function Show(props) {
     Delete Event
   </button>
   </form></div></>
+
   }
-  
+
   return (
     <div>
       <h1>{events.name}</h1>
@@ -83,7 +84,7 @@ function Show(props) {
       <h3>{events.organizer}</h3>
       <p>{events.description}</p>
       <p>Cost: {events.cost}</p>
-      <img className="imageShow" src={events.image} alt={events.name}/><br/>
+      <img className="imageShow" src={events.image} alt={events.name} /><br />
       <div className="indexHeader">
       {props.user === events.organizer ? eventEdit() : null}
   </div>
