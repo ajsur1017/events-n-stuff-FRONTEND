@@ -38,7 +38,6 @@ function Header(props) {
   return (
     <nav className={"navbar navbar-expand-sm bg-dark navbar-dark fixed-top"}>
       <div className={"container-fluid"}>
-        {/* <div className={"navbar-header"}> */}
         <ul className={"navbar-nav"}>
           <li className={"nav-item"}><Link to="/" className={"nav-link active"}><i className={"bi-house-fill"}></i></Link></li>
           {gState.token ? navMe: null}
