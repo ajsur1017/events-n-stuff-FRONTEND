@@ -13,6 +13,7 @@ function Index(props) {
     cost: "",
     image: "",
     organizer: props.user,
+    attendees: [props.user]
   });
 
   const [search, setSearch] = useState("")
@@ -34,6 +35,7 @@ function Index(props) {
       cost: "",
       image: "",
       organizer: "",
+      attendees: []
     });
   };
 
@@ -107,6 +109,7 @@ function Index(props) {
           <p className="labels">Location</p> <p className="indexInfo">{events.location}</p>
           <p className="labels">Price</p> <p className="indexInfo">{events.cost}</p>
           <p className="labels">Date</p><p className="indexInfo">{new Date(events.date).toDateString()}</p>
+          <p className="labels">Attendees</p><p className="indexInfo">{events.attendees.length}</p>
         </div>
       </div>
     ));

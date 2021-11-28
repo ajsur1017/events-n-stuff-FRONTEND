@@ -21,6 +21,8 @@ const Login = (props) => {
     const handleSubmit = (thing) => {
         thing.preventDefault()
         const { username, password } = form
+        window.localStorage.removeItem("username")
+        window.localStorage.setItem("username", username)
         fetch(`${url}/auth/login`, {
             method: "post",
             headers: {
@@ -31,6 +33,7 @@ const Login = (props) => {
             .then( async (response) => {
                 const result = await response.json()
                 if (response.ok === false) {
+                    window.localStorage.removeItem("username")
                     const error = Error(`Request failed with a status of ${response.status}`)
                     error.response = response
                     error.data = result || null
@@ -41,14 +44,17 @@ const Login = (props) => {
             })
             .then(data => {
                 window.localStorage.setItem("token", JSON.stringify(data))
-                setGState({ ...gState, token: data.token })
+                const loggedInUser = window.localStorage.getItem("username")
+                setGState({...gState, token: data.token, username: loggedInUser})
                 setForm(blank)
                 props.history.push("/")
             })
             .catch(error => {
                 if (error.data.error === "USER DOES NOT EXIST") {
+                  window.localStorage.removeItem("username")
                     setError("Credentials Invalid")
                 } if (error.data.error === "PASSWORD DOES NOT MATCH") {
+                  window.localStorage.removeItem("username")
                     setError("Credentials Invalid")
                 }
             })

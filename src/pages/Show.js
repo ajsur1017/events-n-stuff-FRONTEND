@@ -18,6 +18,7 @@ function Show(props) {
     props.updateEvent(editForm, events._id)
     props.history.push("/")
   }
+
   const removeEvent = () => {
     props.deleteEvent(events._id)
     props.history.push("/")
@@ -36,6 +37,7 @@ function Show(props) {
     />
     <input
       type="date"
+      required="yes"
       value={editForm.date}
       name="date"
       placeholder="event date"
@@ -74,19 +76,66 @@ function Show(props) {
     Delete Event
   </button>
   </form></div></>
-
   }
+
+  const submitAttendance = () => {
+    editForm.attendees.push(props.user)
+    props.updateEvent(editForm, events._id)
+    props.history.push("/")
+  }
+
+  const revokeAttendance = () => {
+    editForm.attendees = editForm.attendees.filter(attender => attender != props.user)
+    props.updateEvent(editForm, events._id)
+    props.history.push("/")
+  }
+
+  const attendEvent = () => {
+    return <>
+    <h3 className="attendanceText">You are not currently attending {events.name}. Would you like to cancel?</h3>
+    <div className="eventForm">
+    <form onSubmit={submitAttendance}>
+    <input
+      className="hidden"
+      type="text"
+      value={editForm.attendees}
+      name="attendees"
+      placeholder="attendees"
+      onChange={handleChange}
+    />
+  <input type="submit" className="button" value="Attend Event" />
+</form></div></>
+}
+
+const cancelAttend = () => {
+    return <>
+    <h3 className="attendanceText">Looks like you're already attending {events.name}. Would you like to cancel?</h3>
+    <div className="eventForm">
+    <form onSubmit={revokeAttendance}>
+    <input
+      className="hidden"
+      type="text"
+      value={editForm.attendees}
+      name="attendees"
+      placeholder="attendees"
+      onChange={handleChange}
+    />
+  <input type="submit" className="button" value="Revoke Attendance" />
+</form></div></>
+}
 
   return (
     <div>
       <h1>{events.name}</h1>
-      <h2>{new Date(events.date).toDateString()}</h2>
-      <h3>{events.organizer}</h3>
+      <h3>Date: {new Date(events.date).toDateString()}</h3>
+      <h3>Organizer: {events.organizer}</h3>
+      {events.attendees.length > 0 ? <h3>Current Attendees: {events.attendees.join(', ')}</h3> : <h3>Current Attendees: 0</h3>}
+      <h3>Cost: {events.cost}</h3>
       <p>{events.description}</p>
-      <p>Cost: {events.cost}</p>
       <img className="imageShow" src={events.image} alt={events.name} /><br />
       <div className="indexHeader">
       {props.user === events.organizer ? eventEdit() : null}
+      {events.attendees.includes(props.user) ? cancelAttend(): attendEvent()}
   </div>
     </div> 
   )
