@@ -30,11 +30,16 @@ const Login = (props) => {
         })
         .then(response => response.json())
         .then(data => {
+            if(data.error == null){
             window.localStorage.setItem("token", JSON.stringify(data))
             const loggedInUser = window.localStorage.getItem("username")
             setGState({...gState, token: data.token, username: loggedInUser})
             setForm(blank)
-            props.history.push("/")
+            props.history.push("/");
+            }
+            else{
+                window.localStorage.removeItem("username")
+            }
         })
 
     }
