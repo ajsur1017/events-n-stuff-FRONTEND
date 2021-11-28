@@ -48,6 +48,8 @@ const Login = (props) => {
             .catch(error => {
                 if (error.data.error === "USER DOES NOT EXIST") {
                     setError("Credentials Invalid")
+                } if (error.data.error === "PASSWORD DOES NOT MATCH") {
+                    setError("Credentials Invalid")
                 }
             })
     }
@@ -63,7 +65,7 @@ const Login = (props) => {
                         <input className="loginButton" type="submit" value="Login" /></div>
                 </form>
             </div>
-            {error&&<p>{error}</p>}
+            {error&&<p id="errorMsg">{error}</p>}
             <p>Don't have an account? Sign up <a href="/signup">here</a></p>
         </>
     )
