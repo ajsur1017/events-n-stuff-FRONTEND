@@ -124,6 +124,10 @@ const cancelAttend = () => {
 </form></div></>
 }
 
+const checkLogin = () => {
+    return <> {events.attendees.includes(props.user) ? cancelAttend(): attendEvent()}</>
+}
+
   return (
     <div>
       <h1>{events.name}</h1>
@@ -134,8 +138,8 @@ const cancelAttend = () => {
       <p>{events.description}</p>
       <img className="imageShow" src={events.image} alt={events.name} /><br />
       <div className="indexHeader">
+      {props.user ? checkLogin() : null}
       {props.user === events.organizer ? eventEdit() : null}
-      {events.attendees.includes(props.user) ? cancelAttend(): attendEvent()}
   </div>
     </div> 
   )
