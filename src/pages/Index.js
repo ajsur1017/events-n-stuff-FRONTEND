@@ -12,7 +12,7 @@ function Index(props) {
     description: "",
     cost: "",
     image: "",
-    organizer: "",
+    organizer: props.user,
   });
 
   const [search, setSearch] = useState("")
@@ -38,62 +38,55 @@ function Index(props) {
   };
 
   const createOption = () => {
-    return <>
-      <h1>Create Event</h1>
-      <div className="formCreate">
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            value={newForm.name}
-            name="name"
-            placeholder="event name"
-            onChange={handleChange}
-          />
-          <input
-            type="date"
-            value={newForm.date}
-            name="date"
-            placeholder="event date"
-            onChange={handleChange}
-          />
-          <input
-            type="string"
-            value={newForm.organizer}
-            name="organizer"
-            placeholder="organizer"
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            value={newForm.location}
-            name="location"
-            placeholder="location"
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            value={newForm.cost}
-            name="cost"
-            placeholder="price"
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            value={newForm.description}
-            name="description"
-            placeholder="description"
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            value={newForm.image}
-            name="image"
-            placeholder="image"
-            onChange={handleChange}
-          />
-          <input type="submit" className="button" value="Create Event" />
-        </form></div>
-    </>
+   return <>
+<h1>Create Event</h1>
+    <div className="formCreate">
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={newForm.name}
+          name="name"
+          placeholder="event name"
+          onChange={handleChange}
+        />
+        <input
+          type="date"
+          value={newForm.date}
+          name="date"
+          placeholder="event date"
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          value={newForm.location}
+          name="location"
+          placeholder="location"
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          value={newForm.cost}
+          name="cost"
+          placeholder="price"
+          onChange={handleChange}
+        />
+                <input
+          type="text"
+          value={newForm.description}
+          name="description"
+          placeholder="description"
+          onChange={handleChange}
+        />
+                <input
+          type="text"
+          value={newForm.image}
+          name="image"
+          placeholder="image"
+          onChange={handleChange}
+        />
+        <input type="submit" className="button" value="Create Event" />
+      </form></div>
+      </>
   }
 
   const loaded = () => {

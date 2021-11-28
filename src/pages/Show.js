@@ -24,63 +24,57 @@ function Show(props) {
   }
 
   const eventEdit = () => {
-    return <>
-      <div className="eventForm">
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            value={editForm.name}
-            name="name"
-            placeholder="event name"
-            onChange={handleChange}
-          />
-          <input
-            type="date"
-            value={editForm.date}
-            name="date"
-            placeholder="event date"
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            value={editForm.organizer}
-            name="organizer"
-            placeholder="organizer"
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            value={editForm.location}
-            name="location"
-            placeholder="location"
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            value={editForm.cost}
-            name="cost"
-            placeholder="price"
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            value={editForm.description}
-            name="description"
-            placeholder="description"
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            value={editForm.image}
-            name="image"
-            placeholder="image"
-            onChange={handleChange}
-          />
-          <input type="submit" className="button" value="Update Event" />
-          <button className="button" id="delete" onClick={removeEvent}>
-            Delete Event
-          </button>
-        </form></div></>
+      return <>
+  <div className="eventForm">
+  <form onSubmit={handleSubmit}>
+    <input
+      type="text"
+      value={editForm.name}
+      name="name"
+      placeholder="event name"
+      onChange={handleChange}
+    />
+    <input
+      type="date"
+      value={editForm.date}
+      name="date"
+      placeholder="event date"
+      onChange={handleChange}
+    />
+    <input
+      type="text"
+      value={editForm.location}
+      name="location"
+      placeholder="location"
+      onChange={handleChange}
+    />
+    <input
+      type="text"
+      value={editForm.cost}
+      name="cost"
+      placeholder="price"
+      onChange={handleChange}
+    />
+            <input
+      type="text"
+      value={editForm.description}
+      name="description"
+      placeholder="description"
+      onChange={handleChange}
+    />
+            <input
+      type="text"
+      value={editForm.image}
+      name="image"
+      placeholder="image"
+      onChange={handleChange}
+    />
+    <input type="submit" className="button" value="Update Event" />
+    <button className="button" id="delete" onClick={removeEvent}>
+    Delete Event
+  </button>
+  </form></div></>
+
   }
 
   return (
@@ -92,9 +86,9 @@ function Show(props) {
       <p>Cost: {events.cost}</p>
       <img className="imageShow" src={events.image} alt={events.name} /><br />
       <div className="indexHeader">
-        {props.user ? eventEdit() : null}
-      </div>
-    </div>
+      {props.user === events.organizer ? eventEdit() : null}
+  </div>
+    </div> 
   )
 }
 
