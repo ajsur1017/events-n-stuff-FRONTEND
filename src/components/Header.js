@@ -9,8 +9,8 @@ function Header(props) {
   //Conditional Left Side of NavBar
   const navMe = (
     <>
-      <li className={"nav-item"}><Link to="" className={"nav-link"}><i className={"bi-pen"}></i></Link></li>
-      <li className={"nav-item"}><Link to="" className={"nav-link"}><i className={"bi-people-fill"}></i></Link></li>
+      <li className={"nav-item"}><Link to="/" className={"nav-link"}><i className={"bi-pen"}></i> Hosting</Link></li>
+      <li className={"nav-item"}><Link to="/" className={"nav-link"}><i className={"bi-people-fill"}></i> Attending</Link></li>
     </>
   )
 
@@ -36,18 +36,19 @@ function Header(props) {
   )
 
   return (
-    <nav className={"navbar navbar-expand-sm bg-dark navbar-dark fixed-top"}>
-      <div className={"container-fluid"}>
-        {/* <div className={"navbar-header"}> */}
-        <ul className={"navbar-nav"}>
-          <li className={"nav-item"}><Link to="/" className={"nav-link active"}><i className={"bi-house-fill"}></i></Link></li>
-          {gState.token ? navMe: null}
-        </ul>
-        <ul className="navbar-nav navbar-right">
-          {gState.token ? userLogout : userLogin}
-        </ul>
-      </div>
-    </nav>
+    <>
+      <nav className={"navbar navbar-expand-sm bg-dark navbar-dark fixed-top"}>
+        <div className={"container-fluid"}>
+          <ul className={"navbar-nav"}>
+            <li className={"nav-item"}><Link to="/" className={"nav-link active"}><i className={"bi-house-fill"}></i></Link></li>
+            {gState.token ? navMe: null}
+          </ul>
+          <ul className="navbar-nav navbar-right">
+            {gState.token ? userLogout : userLogin}
+          </ul>
+        </div>
+      </nav><br/>
+    </>
   );
 }
 

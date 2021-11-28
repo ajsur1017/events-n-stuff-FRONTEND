@@ -1,10 +1,14 @@
 import React from "react";
 import "./App.css";
+import { Route, Link, Switch } from "react-router-dom"
+
 import Header from "./components/Header";
 import Main from "./components/Main";
-import { Route, Link, Switch } from "react-router-dom"
 import Signup from "./pages/Signup"
 import Login from "./pages/Login"
+
+//Import React BootStrap
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const GlobalCtx = React.createContext(null)
 
@@ -27,7 +31,7 @@ function App() {
         <Header />
         <main>
           <Switch>
-            <Route exact path="/" render={(rp => gState.token? <h1>Dashboard</h1> :  <h1>Home</h1>)} />
+            <Route exact path="/" />
             <Route path="/signup" render={(rp => <Signup {...rp}/>)} />
             <Route path="/login" render={(rp => <Login {...rp}/>)} />
             {/* <Route path="/dashboard" render={(rp => <h1>Dashboard</h1>)} /> */}
