@@ -4,7 +4,7 @@ import Carousel from 'react-bootstrap/Carousel';
 
 function IndexCarousel(props) {
 
-  console.log("Props.event loaded into Carousel:");
+  console.log("Props.events loaded into Carousel:");
   console.log(props.events);
 
   const generateCarousel = () => {
