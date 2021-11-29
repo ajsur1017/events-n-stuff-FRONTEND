@@ -1,54 +1,48 @@
-import { Link } from "react-router-dom";
 import React from "react"
+import { Link } from "react-router-dom";
+import { Navbar, Nav, Container } from "react-bootstrap";
 import { GlobalCtx } from "../App"
 
 function Header(props) {
   const { gState, setGState } = React.useContext(GlobalCtx)
 
-
-  //Conditional Left Side of NavBar
-  const navMe = (
-    <>
-      <li className={"nav-item"}><Link to="/" className={"nav-link"}><i className={"bi-pen"}></i> Hosting</Link></li>
-      <li className={"nav-item"}><Link to="/" className={"nav-link"}><i className={"bi-people-fill"}></i> Attending</Link></li>
-    </>
-  )
-
-  //Logout Callback
-  const logout = () => {
-    window.localStorage.removeItem("token")
-    setGState({ ...gState, token: null })
-  }
-
   //Conditional Right Side of NavBar
-  const userLogout = (
+
+  //If User Logged In:
+  const logout = (
     <>
-      <li className={"nav-item"}><Link className={"nav-link"}><i className={"bi-person-check-fill"}></i></Link></li>
-      <li onClick={logout} className={"nav-item"}><Link className={"nav-link"}><i className={"bi-x-circle"}></i></Link></li>
+      <Nav.Link href="/myevents" className={"nav-link"} style={{ color: "#382633" }}><i className={"bi-people-fill"}> {gState.username}</i></Nav.Link>
+      <Nav.Link className={"nav-link"} style={{ color: "#614258" }}>
+        <i className={"bi-x-circle"} style={{ color: "#614258" }} onClick={() => {
+          window.localStorage.removeItem("token")
+          window.localStorage.removeItem("username")
+          setGState({ ...gState, token: null, username: null})
+        }}>Logout</i>
+      </Nav.Link>
     </>
   )
 
-  const userLogin = (
+  //If User Logged Out
+  const login = (
     <>
-      <li className={"nav-item"}><Link to="/signup" className={"nav-link"}><i className={"bi-plus-circle"}></i></Link></li>
-      <li className={"nav-item"}><Link to="/login" className={"nav-link"}><i className={"bi-arrow-up-right-circle"}></i></Link ></li>
+      <Nav.Item>
+        <Nav.Link href="/signup" style={{ color: "#382633" }}><i className={"bi-plus-circle"} style={{ color: "#382633" }}></i> Sign Up</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link href="/login" style={{ color: "#382633" }}><i className={"bi-arrow-up-right-circle"} style={{ color: "#382633"}}></i> Login</Nav.Link >
+      </Nav.Item>
     </>
   )
 
   return (
-    <>
-      <nav className={"navbar navbar-expand-sm bg-dark navbar-dark fixed-top"}>
-        <div className={"container-fluid"}>
-          <ul className={"navbar-nav"}>
-            <li className={"nav-item"}><Link to="/" className={"nav-link active"}><i className={"bi-house-fill"}></i></Link></li>
-            {gState.token ? navMe: null}
-          </ul>
-          <ul className="navbar-nav navbar-right">
-            {gState.token ? userLogout : userLogin}
-          </ul>
-        </div>
-      </nav><br/>
-    </>
+    <Navbar style={{ backgroundColor: "#F2CC8F" }}>
+      <Container>
+        <Navbar.Brand href="#home" className="justify-content-start" ><Link to="/" style={{ color: "rgb(102, 51, 153)" }}><i className={"bi-house-fill"}></i></Link></Navbar.Brand>
+        <Nav className="justify-content-center" activeKey="/home">
+          {gState.token ? logout : login}
+        </Nav>
+      </Container>
+    </Navbar>
   );
 }
 

@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom";
 import Index from "../pages/Index";
 import Show from "../pages/Show";
+import MyEvents from "../pages/MyEvents"
 
 function Main(props) {
-  const [event , setEvent] = useState(null);
+  const [event, setEvent] = useState(null);
 
   const URL = "https://events-n-stuff.herokuapp.com/events/";
 
@@ -45,20 +46,35 @@ function Main(props) {
 
   useEffect(() => getEvent(), []);
 
+  console.log(props)
+
   return (
     <main>
       <Switch>
         <Route exact path="/">
-          <Index user={props.user} events={event} createEvent={createEvent} />
+          <Index user={props.user} event={event} createEvent={createEvent} updateEvent={updateEvent} />
         </Route>
         <Route
           path="/events/:id"
           render={(rp) => (
             <Show
               {...rp}
+              user={props.user}
               event={event}
               updateEvent={updateEvent}
               deleteEvent={deleteEvent}
+            />
+          )}
+        />
+        <Route
+          path="/myevents"
+          render={(rp) => (
+            <MyEvents
+              {...rp}
+              user={props.user}
+              event={event}
+              updateEvent={updateEvent}
+              createEvent={createEvent}
             />
           )}
         />

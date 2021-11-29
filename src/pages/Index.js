@@ -1,31 +1,40 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Carousel from "../components/IndexCarousel";
+import { Carousel, Nav, Image } from 'react-bootstrap';
 
 function Index(props) {
+const [search, setSearch] = useState("")
 
-  console.log("Props.events");
-  console.log(props.events)
-
-  //State for Search Text
-  const [search, setSearch] = useState("")
-  //State for Array of Events to Send to Carousel
-  const [events, setEvents] = useState(props.events)
-
-  console.log("Events state:")
-  console.log(events);
-
-  const loaded = () => {
-    const filteredEvents = props.events.filter(foundEvent => {
+  const generateCarousel = () => {
+    return props.event.filter(foundEvent => {
       if (search === "") {
         return foundEvent;
       } else if (foundEvent.name.toLowerCase().includes(search.toLowerCase()) || foundEvent.location.toLowerCase().includes(search.toLowerCase())) {
         return foundEvent
       }
-    })
-    setEvents(filteredEvents);
+    }).map((event) => (
+      <Carousel.Item key={event._id}>
+        <Link to={`/events/${event._id}`}>
+          <Image
+            className="d-block w-100"
+            src={event.image}
+            alt=""
+            style={{height : "20em"}}
+            fluid
+          /></Link>
+        <Carousel.Caption>
+          <h3>{event.name}</h3>
+          <p>{event.description}</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+    ));
+  };
+
+  const loaded = () => {
     return (
-      <Carousel events={events}/>
+      <Carousel style={{margin : "1em"}}>
+        {props.event ? generateCarousel() : null}
+      </Carousel>
     )
   }
 
@@ -35,12 +44,12 @@ function Index(props) {
 
   return (
     <section>
-      <div className="browseEvents"><br/>
-        <h1>Browse Events</h1>
-        <input className="searchBar" placeholder="Search by Title or Location" onChange={event => setSearch(event.target.value)} />
+      <div className="browseEvents">
+        <h4>All Events</h4>
+        <input className="searchBar" placeholder="Browse..." onChange={event => setSearch(event.target.value)} />
       </div>
       <div className="content">
-        {props.events ? loaded() : loading()}
+        {props.event ? loaded() : loading()}
       </div>
     </section>
   );
