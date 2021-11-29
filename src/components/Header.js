@@ -5,7 +5,6 @@ import { GlobalCtx } from "../App"
 function Header(props) {
   const { gState, setGState } = React.useContext(GlobalCtx)
 
-
   //Conditional Left Side of NavBar
   const navMe = (
     <>
@@ -15,7 +14,7 @@ function Header(props) {
   )
 
   //Logout Callback
-  const logout = () => {
+  const logoutUser = () => {
     window.localStorage.removeItem("token")
     setGState({ ...gState, token: null })
   }

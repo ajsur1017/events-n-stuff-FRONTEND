@@ -43,6 +43,7 @@
 .button{
   background-color: #b00b69;
   color: white;
+  text-align: center;
 }
 
 form{
@@ -113,6 +114,14 @@ form{
   padding-right: 10px;
   color: white;
   text-decoration: underline;
+}
+
+.hidden{
+  display: none;
+}
+
+.attendanceText{
+  text-align: center;
 }
 
 .title{
@@ -206,4 +215,14 @@ form{
 /* #inputSignup {
   padding: 5px;
   margin: 8px;
+<<<<<<< HEAD
 } */
+
+#errorMsg {
+  color: red;
+  font-size: 20px;
+  border: 2px;
+  border-style: double;
+  
+}
+
