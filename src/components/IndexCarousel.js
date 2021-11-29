@@ -7,8 +7,6 @@ function IndexCarousel(props) {
   console.log("Props.event loaded into Carousel:");
   console.log(props.events);
 
-  const [search, setSearch] = useState("")
-
   const generateCarousel = () => {
     return props.events.map((event, index) => (
       <Carousel.Item key={event._id}>

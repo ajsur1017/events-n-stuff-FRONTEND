@@ -49,7 +49,7 @@ function Main(props) {
     <main>
       <Switch>
         <Route exact path="/">
-          <Index user={props.user} event={event} createEvent={createEvent} />
+          <Index user={props.user} events={event} createEvent={createEvent} />
         </Route>
         <Route
           path="/events/:id"
