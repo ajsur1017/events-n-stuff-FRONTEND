@@ -20,7 +20,7 @@ function Header(props) {
         <div className="login">Login</div>
       </Link>
       <Link to="/signup">
-        <div className="signup">Sign Up</div>
+        <div className="login">Sign Up</div>
       </Link>
     </>)
 
@@ -30,6 +30,12 @@ function Header(props) {
         <div className="title">Events n' Stuff</div>
       </Link>
       <div className="headerLinks">
+      <Link to="/">
+      <div className="login">Home</div>
+      </Link>
+      <Link to="/myevents">
+      <div className="login">My Events</div>
+      </Link>
         {gState.token ? logout : login}
       </div>
     </nav>

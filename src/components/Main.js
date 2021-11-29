@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom";
 import Index from "../pages/Index";
 import Show from "../pages/Show";
+import MyEvents from "../pages/MyEvents"
 
 function Main(props) {
   const [event, setEvent] = useState(null);
@@ -62,6 +63,18 @@ function Main(props) {
               event={event}
               updateEvent={updateEvent}
               deleteEvent={deleteEvent}
+            />
+          )}
+        />
+        <Route
+          path="/myevents"
+          render={(rp) => (
+            <MyEvents
+              {...rp}
+              user={props.user}
+              event={event}
+              updateEvent={updateEvent}
+              createEvent={createEvent}
             />
           )}
         />
