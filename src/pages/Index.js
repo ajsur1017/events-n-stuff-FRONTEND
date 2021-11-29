@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Carousel from 'react-bootstrap/Carousel';
+import { Carousel, Nav, Image } from 'react-bootstrap';
 
 function Index(props) {
 const [search, setSearch] = useState("")
@@ -16,11 +16,12 @@ const [search, setSearch] = useState("")
     }).map((event) => (
       <Carousel.Item key={event._id}>
         <Link to={`/events/${event._id}`}>
-          <img
+          <Image
             className="d-block w-100"
             src={event.image}
             alt=""
-            style={{height : "300px"}}
+            style={{height : "20em"}}
+            fluid
           /></Link>
         <Carousel.Caption>
           <h3>{event.name}</h3>
@@ -32,7 +33,7 @@ const [search, setSearch] = useState("")
 
   const loaded = () => {
     return (
-      <Carousel variant="dark" style={{marginLeft : "1em", marginRight : "1em"}}>
+      <Carousel style={{margin : "1em"}}>
         {props.event ? generateCarousel() : null}
       </Carousel>
     )
@@ -44,7 +45,7 @@ const [search, setSearch] = useState("")
   return (
     <section>
       <div className="browseEvents">
-        <h1>All Events</h1>
+        <h4>All Events</h4>
         <input className="searchBar" placeholder="Browse..." onChange={event => setSearch(event.target.value)} />
       </div>
       <div className="content">
