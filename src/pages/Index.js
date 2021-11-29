@@ -3,93 +3,7 @@ import { Link } from "react-router-dom";
 import Carousel from 'react-bootstrap/Carousel';
 
 function Index(props) {
-  const [newForm, setNewForm] = useState({
-    name: "",
-    date: "",
-    startTime: "",
-    endTime: "",
-    location: "",
-    description: "",
-    cost: "",
-    image: "",
-    organizer: props.user,
-    attendees: [props.user]
-  });
-
-  const [search, setSearch] = useState("")
-
-  const handleChange = (event) => {
-    setNewForm({ ...newForm, [event.target.name]: event.target.value });
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    props.createEvent(newForm);
-    setNewForm({
-      name: "",
-      date: "",
-      startTime: "",
-      endTime: "",
-      location: "",
-      description: "",
-      cost: "",
-      image: "",
-      organizer: "",
-      attendees: []
-    });
-  };
-
-  const createOption = () => {
-   return <>
-<h1>Create Event</h1>
-    <div className="formCreate">
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={newForm.name}
-          name="name"
-          placeholder="event name"
-          onChange={handleChange}
-        />
-        <input
-          type="date"
-          value={newForm.date}
-          name="date"
-          placeholder="event date"
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          value={newForm.location}
-          name="location"
-          placeholder="location"
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          value={newForm.cost}
-          name="cost"
-          placeholder="price"
-          onChange={handleChange}
-        />
-                <input
-          type="text"
-          value={newForm.description}
-          name="description"
-          placeholder="description"
-          onChange={handleChange}
-        />
-                <input
-          type="text"
-          value={newForm.image}
-          name="image"
-          placeholder="image"
-          onChange={handleChange}
-        />
-        <input type="submit" className="button" value="Create Event" />
-      </form></div>
-      </>
-  }
+const [search, setSearch] = useState("")
 
   const generateCarousel = () => {
     return props.event.filter(foundEvent => {
@@ -129,12 +43,9 @@ function Index(props) {
   };
   return (
     <section>
-      <div className="indexHeader"><br/>
-        {props.user ? createOption() : null}
-      </div>
       <div className="browseEvents">
-        <h2>Browse Events</h2>
-        <input className="searchBar" placeholder="Search by Title or Location" onChange={event => setSearch(event.target.value)} />
+        <h1>All Events</h1>
+        <input className="searchBar" placeholder="Browse..." onChange={event => setSearch(event.target.value)} />
       </div>
       <div className="content">
         {props.event ? loaded() : loading()}

@@ -5,49 +5,41 @@ import { GlobalCtx } from "../App"
 function Header(props) {
   const { gState, setGState } = React.useContext(GlobalCtx)
 
-  //Conditional Left Side of NavBar
-  const navMe = (
-    <>
-      <li className={"nav-item"}><Link to="/" className={"nav-link"}><i className={"bi-pen"}></i> Hosting</Link></li>
-      <li className={"nav-item"}><Link to="/" className={"nav-link"}><i className={"bi-people-fill"}></i> Attending</Link></li>
-    </>
-  )
-
-  //Logout Callback
-  const logoutUser = () => {
-    window.localStorage.removeItem("token")
-    setGState({ ...gState, token: null })
-  }
+  const logout = (
+    <Link>
+      <div className="login" onClick={() => {
+        window.localStorage.removeItem("token")
+        window.localStorage.removeItem("username")
+        setGState({ ...gState, token: null, username: null})
+      }}>Logout</div>
+    </Link>)
 
   //Conditional Right Side of NavBar
   const userLogout = (
     <>
-      <li className={"nav-item"}><Link className={"nav-link"}><i className={"bi-person-check-fill"}></i></Link></li>
-      <li onClick={logoutUser} className={"nav-item"}><Link className={"nav-link"}><i className={"bi-x-circle"}></i></Link></li>
-    </>
-  )
-
-  const userLogin = (
-    <>
-      <li className={"nav-item"}><Link to="/signup" className={"nav-link"}><i className={"bi-plus-circle"}></i></Link></li>
-      <li className={"nav-item"}><Link to="/login" className={"nav-link"}><i className={"bi-arrow-up-right-circle"}></i></Link ></li>
-    </>
-  )
+      <Link to="/login">
+        <div className="login">Login</div>
+      </Link>
+      <Link to="/signup">
+        <div className="login">Sign Up</div>
+      </Link>
+    </>)
 
   return (
-    <>
-      <nav className={"navbar navbar-expand-sm bg-dark navbar-dark"}>
-        <div className={"container-fluid"}>
-          <ul className={"navbar-nav"}>
-            <li className={"nav-item"}><Link to="/" className={"nav-link active"}><i className={"bi-house-fill"}></i></Link></li>
-            {gState.token ? navMe: null}
-          </ul>
-          <ul className="navbar-nav navbar-right">
-            {gState.token ? userLogout : userLogin}
-          </ul>
-        </div>
-      </nav><br/>
-    </>
+    <nav className="nav">
+      <Link to="/">
+        <div className="title">Events n' Stuff</div>
+      </Link>
+      <div className="headerLinks">
+      <Link to="/">
+      <div className="login">Home</div>
+      </Link>
+      <Link to="/myevents">
+      <div className="login">My Events</div>
+      </Link>
+        {gState.token ? logout : login}
+      </div>
+    </nav>
   );
 }
 
