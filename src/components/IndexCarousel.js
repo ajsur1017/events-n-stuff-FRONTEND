@@ -8,7 +8,6 @@ function IndexCarousel(props) {
 
   const generateCarousel = () => {
     return props.events.map((event, index) => (
-      // <p key={index}>{event.name}</p>
       <Carousel.Item key={index}>
         <img
           className="d-block w-100"
@@ -32,7 +31,7 @@ function IndexCarousel(props) {
   const loaded = () => {
     return (
       <Carousel>
-          {generateCarousel()}
+        {generateCarousel()}
       </Carousel>
     )
   }
