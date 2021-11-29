@@ -92,7 +92,7 @@ function Show(props) {
 
   const attendEvent = () => {
     return <>
-    <h3 className="attendanceText">You are not currently attending {events.name}. Would you like to cancel?</h3>
+    <h3 className="attendanceText">You are not currently attending {events.name}. Would you like to attend?</h3>
     <div className="eventForm">
     <form onSubmit={submitAttendance}>
     <input
