@@ -1,12 +1,8 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import Carousel from "../components/IndexCarousel";
+import { Link } from "react-router-dom"
+import React from "react"
 
 function Index(props) {
-  
-  console.log("Props.event loaded into Index:");
-  console.log(props.event)
-
   const [newForm, setNewForm] = useState({
     name: "",
     date: "",
@@ -16,8 +12,11 @@ function Index(props) {
     description: "",
     cost: "",
     image: "",
-    user: ""
+    organizer: props.user,
+    attendees: [props.user]
   });
+
+  const [search, setSearch] = useState("")
 
   const handleChange = (event) => {
     setNewForm({ ...newForm, [event.target.name]: event.target.value });
@@ -35,22 +34,82 @@ function Index(props) {
       description: "",
       cost: "",
       image: "",
-      user: "",
+      organizer: "",
+      attendees: []
     });
   };
 
+  const createOption = () => {
+   return <>
+<h1>Create Event</h1>
+    <div className="formCreate">
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={newForm.name}
+          name="name"
+          placeholder="event name"
+          onChange={handleChange}
+        />
+        <input
+          type="date"
+          value={newForm.date}
+          name="date"
+          placeholder="event date"
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          value={newForm.location}
+          name="location"
+          placeholder="location"
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          value={newForm.cost}
+          name="cost"
+          placeholder="price"
+          onChange={handleChange}
+        />
+                <input
+          type="text"
+          value={newForm.description}
+          name="description"
+          placeholder="description"
+          onChange={handleChange}
+        />
+                <input
+          type="text"
+          value={newForm.image}
+          name="image"
+          placeholder="image"
+          onChange={handleChange}
+        />
+        <input type="submit" className="button" value="Create Event" />
+      </form></div>
+      </>
+  }
+
   const loaded = () => {
-    return props.event.map((events) => (
+    return props.event.filter(foundEvent => {
+      if (search === "") {
+        return foundEvent;
+      }
+      else if (foundEvent.name.toLowerCase().includes(search.toLowerCase()) || foundEvent.location.toLowerCase().includes(search.toLowerCase())) {
+        return foundEvent
+      }
+    }).map((events) => (
       <div key={events._id} className="events">
         <Link to={`/events/${events._id}`}><h1>{events.name}</h1></Link>
         <p className="indexInfoDesc">{events.description}</p>
-        <img className="indexInfoImage" src={events.image} alt="its broken" />
+        <img className="indexInfoImage" src={events.image} alt={events.name} />
         <div className="indexInfoDiv">
-          <p className="labels">Organizer</p> <p className="indexInfo">{events.username}</p>
+          <p className="labels">Organizer</p> <p className="indexInfo">{events.organizer}</p>
           <p className="labels">Location</p> <p className="indexInfo">{events.location}</p>
           <p className="labels">Price</p> <p className="indexInfo">{events.cost}</p>
           <p className="labels">Date</p><p className="indexInfo">{new Date(events.date).toDateString()}</p>
-          <p className="labels">Attendees</p> <p className="indexInfo">{events.attendees.length}</p>
+          <p className="labels">Attendees</p><p className="indexInfo">{events.attendees.length}</p>
         </div>
       </div>
     ));
@@ -59,13 +118,17 @@ function Index(props) {
   const loading = () => {
     return <h1>Loading...</h1>;
   };
-
   return (
     <section>
-
-        <div className="content">
-          {props.event ? <Carousel events={props.event}/> : loading()}
-        </div>
+      <div className="indexHeader">
+        {props.user ? createOption() : null}
+      </div>
+      <div className="browseEvents">
+        <h1>Browse Events</h1>
+        <input className="searchBar" placeholder="Search by Title or Location" onChange={event => setSearch(event.target.value)} />
+      </div>
+      <div className="content">
+        {props.event ? loaded() : loading()}</div>
     </section>
   );
 }
