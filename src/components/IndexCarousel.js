@@ -8,7 +8,7 @@ function IndexCarousel(props) {
 
   const generateCarousel = () => {
     return props.events.map((event, index) => (
-      <Carousel.Item key={index}>
+      <Carousel.Item key={event._id}>
         <img
           className="d-block w-100"
           src={event.image}

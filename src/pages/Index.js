@@ -62,53 +62,7 @@ function Index(props) {
 
   return (
     <section>
-      {/* <h3>Post New Event</h3>
-      <div className="formCreate">
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            value={newForm.name}
-            name="name"
-            placeholder="event name"
-            onChange={handleChange}
-          />
-          <input
-            type="date"
-            value={newForm.date}
-            name="date"
-            placeholder="event date"
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            value={newForm.location}
-            name="location"
-            placeholder="location"
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            value={newForm.cost}
-            name="cost"
-            placeholder="price"
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            value={newForm.description}
-            name="description"
-            placeholder="description"
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            value={newForm.image}
-            name="image"
-            placeholder="image"
-            onChange={handleChange}
-          />
-          <input type="submit" className="button" value="Create Event" />
-        </form></div> */}
+
         <div className="content">
           {props.event ? <Carousel events={props.event}/> : loading()}
         </div>
