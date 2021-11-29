@@ -209,20 +209,14 @@ form{
   to {
     transform: rotate(360deg);
   }
-}
+} */
 
 /* SIGNUP FORM */
 /* #inputSignup {
   padding: 5px;
   margin: 8px;
-<<<<<<< HEAD
 } */
 
-#errorMsg {
-  color: red;
-  font-size: 20px;
-  border: 2px;
-  border-style: double;
-  
+Carousel {
+  margin: 10em;
 }
-
