@@ -6,8 +6,8 @@ function Header(props) {
   const { gState, setGState } = React.useContext(GlobalCtx)
 
   const logout = (
-    <Link to="/login">
-      <div className="logout" onClick={() => {
+    <Link>
+      <div className="login" onClick={() => {
         window.localStorage.removeItem("token")
         window.localStorage.removeItem("username")
         setGState({ ...gState, token: null, username: null})
