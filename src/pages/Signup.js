@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom"
 import { GlobalCtx } from "../App"
 
 const Signup = (props) => {
@@ -52,7 +53,7 @@ const Signup = (props) => {
                         <input className="loginButton" type="submit" value="Sign Up" /></div>
                 </form>
             </div>
-            <p>Already have an account? Login <a href="/login">here</a></p>
+            <p>Already have an account? Login <Link to="/login">here</Link></p>
         </>
     )
 }

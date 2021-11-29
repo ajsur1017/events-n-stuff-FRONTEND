@@ -157,7 +157,7 @@ const [newForm, setNewForm] = useState({
       <div className="indexHeader">
         {props.user ? createOption() : null}
       </div>
-      {props.user ? logEvents() : <><h1>Looks like you aren't logged in.</h1><p>Already have an account? Login <a href="/login">here</a></p><p>Don't have an account? Sign up <a href="/signup">here</a></p></>}
+      {props.user ? logEvents() : <><h1>Looks like you aren't logged in.</h1><p>Already have an account? Login <Link to="/login">here</Link></p><p>Don't have an account? Sign up <Link to="/signup">here</Link></p></>}
     </section>
   );
 }

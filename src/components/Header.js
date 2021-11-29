@@ -7,7 +7,7 @@ function Header(props) {
 
   const logout = (
     <Link>
-      <div className="logout" onClick={() => {
+      <div className="login" onClick={() => {
         window.localStorage.removeItem("token")
         window.localStorage.removeItem("username")
         setGState({ ...gState, token: null, username: null})
