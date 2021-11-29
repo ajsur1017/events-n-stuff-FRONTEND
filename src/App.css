@@ -217,6 +217,14 @@ form{
   margin: 8px;
 } */
 
-Carousel {
-  margin: 10em;
+
+/* Carousel Styling */
+
+.customCarousel {
+  margin-left: 3em;
+  margin-right: 3em;
+}
+
+.customCarouselImage {
+  height: 400px;
 }

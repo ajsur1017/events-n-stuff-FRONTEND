@@ -23,7 +23,7 @@ function Header(props) {
   const userLogout = (
     <>
       <li className={"nav-item"}><Link className={"nav-link"}><i className={"bi-person-check-fill"}></i></Link></li>
-      <li onClick={logout} className={"nav-item"}><Link className={"nav-link"}><i className={"bi-x-circle"}></i></Link></li>
+      <li onClick={logoutUser} className={"nav-item"}><Link className={"nav-link"}><i className={"bi-x-circle"}></i></Link></li>
     </>
   )
 
@@ -36,7 +36,7 @@ function Header(props) {
 
   return (
     <>
-      <nav className={"navbar navbar-expand-sm bg-dark navbar-dark fixed-top"}>
+      <nav className={"navbar navbar-expand-sm bg-dark navbar-dark"}>
         <div className={"container-fluid"}>
           <ul className={"navbar-nav"}>
             <li className={"nav-item"}><Link to="/" className={"nav-link active"}><i className={"bi-house-fill"}></i></Link></li>

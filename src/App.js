@@ -32,7 +32,7 @@ function App() {
         <Header />
         <main>
           <Switch>
-            <Route exact path="/" render={(rp => gState.token ? <h1>Welcome!</h1> : <h1>Signup or Login to get started!</h1>)} />
+            <Route exact path="/"/>
             <Route path="/signup" render={(rp => <Signup {...rp} />)} />
             <Route path="/login" render={(rp => <Login {...rp} />)} />
 

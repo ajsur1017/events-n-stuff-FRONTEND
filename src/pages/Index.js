@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { Link } from "react-router-dom"
-import React from "react"
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import Carousel from 'react-bootstrap/Carousel';
 
 function Index(props) {
   const [newForm, setNewForm] = useState({
@@ -91,7 +91,7 @@ function Index(props) {
       </>
   }
 
-  const loaded = () => {
+  const generateCarousel = () => {
     return props.event.filter(foundEvent => {
       if (search === "") {
         return foundEvent;
@@ -99,36 +99,46 @@ function Index(props) {
       else if (foundEvent.name.toLowerCase().includes(search.toLowerCase()) || foundEvent.location.toLowerCase().includes(search.toLowerCase())) {
         return foundEvent
       }
-    }).map((events) => (
-      <div key={events._id} className="events">
-        <Link to={`/events/${events._id}`}><h1>{events.name}</h1></Link>
-        <p className="indexInfoDesc">{events.description}</p>
-        <img className="indexInfoImage" src={events.image} alt={events.name} />
-        <div className="indexInfoDiv">
-          <p className="labels">Organizer</p> <p className="indexInfo">{events.organizer}</p>
-          <p className="labels">Location</p> <p className="indexInfo">{events.location}</p>
-          <p className="labels">Price</p> <p className="indexInfo">{events.cost}</p>
-          <p className="labels">Date</p><p className="indexInfo">{new Date(events.date).toDateString()}</p>
-          <p className="labels">Attendees</p><p className="indexInfo">{events.attendees.length}</p>
-        </div>
-      </div>
+    }).map((event) => (
+      <Carousel.Item key={event._id}>
+        <Link to={`/events/${event._id}`}>
+          <img
+            className="d-block w-100"
+            src={event.image}
+            alt=""
+            style={{height : "300px"}}
+          /></Link>
+        <Carousel.Caption>
+          <h3>{event.name}</h3>
+          <p>{event.description}</p>
+        </Carousel.Caption>
+      </Carousel.Item>
     ));
   };
+
+  const loaded = () => {
+    return (
+      <Carousel variant="dark" style={{marginLeft : "1em", marginRight : "1em"}}>
+        {props.event ? generateCarousel() : null}
+      </Carousel>
+    )
+  }
 
   const loading = () => {
     return <h1>Loading...</h1>;
   };
   return (
     <section>
-      <div className="indexHeader">
+      <div className="indexHeader"><br/>
         {props.user ? createOption() : null}
       </div>
       <div className="browseEvents">
-        <h1>Browse Events</h1>
+        <h2>Browse Events</h2>
         <input className="searchBar" placeholder="Search by Title or Location" onChange={event => setSearch(event.target.value)} />
       </div>
       <div className="content">
-        {props.event ? loaded() : loading()}</div>
+        {props.event ? loaded() : loading()}
+      </div>
     </section>
   );
 }
