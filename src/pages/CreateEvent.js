@@ -38,8 +38,8 @@ const [newForm, setNewForm] = useState({
   };
 
   const createOption = () => {
-   return <>
-<h1>Create Event</h1>
+    return <div className={"createBlock"}>
+<h1 className={"createHeading"}>Create Event</h1>
     <div className="formCreate">
       <form onSubmit={handleSubmit}>
         <input
@@ -84,9 +84,9 @@ const [newForm, setNewForm] = useState({
           placeholder="image"
           onChange={handleChange}
         />
-        <input type="submit" className="button" value="Create Event" />
+        <input type="submit" className="createButton" value="Create Event" />
       </form></div>
-      </>
+      </div>
   }
 
   return (

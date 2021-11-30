@@ -26,7 +26,6 @@ function Show(props) {
 
   const eventEdit = () => {
       return <>
-  <h4>Update Event</h4>
   <div className="eventForm">
   <form onSubmit={handleSubmit}>
     <input
@@ -82,13 +81,13 @@ function Show(props) {
   const submitAttendance = () => {
     editForm.attendees.push(props.user)
     props.updateEvent(editForm, events._id)
-    props.history.push("/myevents")
+    props.history.push("/")
   }
 
   const revokeAttendance = () => {
     editForm.attendees = editForm.attendees.filter(attender => attender != props.user)
     props.updateEvent(editForm, events._id)
-    props.history.push("/myevents")
+    props.history.push("/")
   }
 
   const attendEvent = () => {
@@ -130,18 +129,20 @@ const checkLogin = () => {
 }
 
   return (
-    <div>
-      <h1>{events.name}</h1>
-      <h3>Date: {new Date(events.date).toDateString()}</h3>
-      <h3>Organizer: {events.organizer}</h3>
-      {events.attendees.length > 0 ? <h3>Current Attendees: {events.attendees.join(', ')}</h3> : <h3>Current Attendees: 0</h3>}
-      <h3>Cost: {events.cost}</h3>
-      <p>{events.description}</p>
-      <img className="imageShow" src={events.image} alt={events.name} /><br />
-      <div className="indexHeader">
-      {props.user ? checkLogin() : null}
-      {props.user == events.organizer ? eventEdit() : null}
-  </div>
+    <div className={"showPageWrapper"}>
+      <img className="showImage" src={events.image} alt={events.name} />
+      <div className={"showDetails"}>
+        <h1>{events.name}</h1>
+        <h3>Date: {new Date(events.date).toDateString()}</h3>
+        <h3>Organizer: {events.organizer}</h3>
+        {events.attendees.length > 0 ? <h3>Current Attendees: {events.attendees.join(', ')}</h3> : <h3>Current Attendees: 0</h3>}
+        <h3>Cost: {events.cost}</h3>
+        <p>{events.description}</p>
+        <div className="indexHeader">
+          {props.user ? checkLogin() : null}
+          {props.user === events.organizer ? eventEdit() : null}
+        </div>
+      </div>
     </div> 
   )
 }

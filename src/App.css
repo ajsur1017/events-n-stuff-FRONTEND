@@ -200,6 +200,61 @@ form{
   box-shadow:none;
 }
 
+/* Show Page Styling */
+
+div.showPageWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: left;
+}
+
+img.showImage {
+  height: 12em;
+  width: 22em;
+  margin: 10em, auto;
+}
+
+/* Create Event */
+
+div.createBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  margin-top: 2.5em;
+}
+
+div.formCreate > form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  padding: 1em;
+}
+
+h1.createHeading {
+  text-align: center;
+  color: rgb(102, 51, 153);
+  font-weight: bolder;
+}
+
+input.createButton {
+  border: none;
+  background-color: rgb(102, 51, 153);
+  border-color: rgb(102, 51, 153);
+  border-radius: 0.25em;
+  color:lightgrey;
+  font-weight: bold;
+  font-size: 0.75em;
+  width: 10em;
+  margin-top: 2.5em;
+  margin-bottom: 5em;
+}
+
 /* Footer Styling */
 
 div.footer {
@@ -240,6 +295,8 @@ div.loginDiv {
   justify-content: space-evenly;
   align-items: center;
   text-align: center;
+  margin-bottom: 2.5em;
+  margin-top: 2.5em;
 }
 
 h1.loginWelcome {
@@ -272,7 +329,8 @@ input.loginButton {
   font-weight: bold;
   font-size: 0.75em;
   width: 10em;
-  margin-bottom: 5em;
+  margin-top: 2.5em;
+  margin-bottom: 2.5em;
 }
 
 /* Sign Up Styling */
@@ -317,6 +375,17 @@ input.loginButton {
 
 .hidden{
   display: none;
+}
+
+/* Universal Vertical Align Group */
+
+.verticalAlignBlock {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 /*
