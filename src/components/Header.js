@@ -1,44 +1,57 @@
-import { Link } from "react-router-dom";
 import React from "react"
+import { Link } from "react-router-dom";
+import { Navbar, Nav, Container } from "react-bootstrap";
 import { GlobalCtx } from "../App"
 
 function Header(props) {
   const { gState, setGState } = React.useContext(GlobalCtx)
 
-  const logout = (
-    <Link>
-      <div className="login" onClick={() => {
-        window.localStorage.removeItem("token")
-        window.localStorage.removeItem("username")
-        setGState({ ...gState, token: null, username: null})
-      }}>Logout</div>
-    </Link>)
+  const colorNavItem = "rgb(102, 51, 153)";
 
-  const login = (
+  //If User Logged In:
+  const yesUser = (
     <>
-      <Link to="/login">
-        <div className="login">Login</div>
-      </Link>
-      <Link to="/signup">
-        <div className="login">Sign Up</div>
-      </Link>
-    </>)
+      <Nav.Link href="/myevents" className={"nav-link"} style={{ color: `${colorNavItem}` }}><i className={"bi-people-fill"}> {gState.username}</i></Nav.Link>
+      <Nav.Link className={"nav-link"}>
+        <i className={"bi-x-circle"} style={{ color: `${colorNavItem}` }} onClick={() => {
+          window.localStorage.removeItem("token")
+          window.localStorage.removeItem("username")
+          setGState({ ...gState, token: null, username: null})
+        }}></i>
+      </Nav.Link>
+    </>
+  )
+
+  const yesCreate = (
+    <Nav.Item>
+      <Nav.Link href="/createvent" style={{ color: `${colorNavItem}` }}><i className={"bi-vector-pen"} style={{ color: `${colorNavItem}` }}></i></Nav.Link >
+    </Nav.Item>
+  )
+
+  //If User Logged Out
+  const noUser = (
+    <>
+      <Nav.Item>
+        <Nav.Link href="/signup" style={{ color: `${colorNavItem}` }}><i className={"bi-plus-circle"} style={{ color: `${colorNavItem}` }}></i></Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link href="/login" style={{ color: `${colorNavItem}` }}><i className={"bi-arrow-up-right-circle"} style={{ color: `${colorNavItem}`}}></i></Nav.Link >
+      </Nav.Item>
+    </>
+  )
 
   return (
-    <nav className="nav">
-      <Link to="/">
-        <div className="title">Events n' Stuff</div>
-      </Link>
-      <div className="headerLinks">
-      <Link to="/">
-      <div className="login">Home</div>
-      </Link>
-      <Link to="/myevents">
-      <div className="login">My Events</div>
-      </Link>
-        {gState.token ? logout : login}
-      </div>
-    </nav>
+    <Navbar bg="light">
+      <Container>
+        <Navbar.Brand href="#home" className="justify-content-start" ><Link to="/" style={{ color: `${colorNavItem}` }}><i className={"bi-house-fill"}></i></Link></Navbar.Brand>
+        <Nav className={"me-auto"}>
+          {gState.token ? yesCreate : null}
+        </Nav>
+        <Nav className="justify-content-end" activeKey="/home">
+          {gState.token ? yesUser : noUser}
+        </Nav>
+      </Container>
+    </Navbar>
   );
 }
 

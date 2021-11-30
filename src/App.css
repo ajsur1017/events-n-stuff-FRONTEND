@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -176,12 +176,35 @@ form{
 .indexHeader{
   text-align: left;
   align-content: left;
-}
+}*/
+
+
+/* Index Page Styling  */
 
 .browseEvents{
+  margin: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: left;
   text-align: left;
 }
 
+.browseEvents > h4 {
+  color: rgb(102, 51, 153);
+  font-family: "Outfit", "Monospace";
+  font-weight: "bold";
+}
+
+.browseEvents > input {
+  height: 1.5em;
+  border-color: #444950;
+  border-width: 0.1em;
+  border-radius: 0.25em;
+  box-shadow:none;
+}
+
+/*
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -210,18 +233,17 @@ form{
   to {
     transform: rotate(360deg);
   }
-}
+} */ 
 
 /* SIGNUP FORM */
-#inputSignup {
+/* #inputSignup {
   padding: 5px;
   margin: 8px;
 }
 
-#errorMsg {
-  color: red;
-  font-size: 20px;
-  border: 2px;
-  border-style: double;
-  
+
+/* Carousel Styling */
+
+.customCarousel {
+  margin: 1em;
 }
