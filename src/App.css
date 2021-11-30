@@ -68,12 +68,6 @@ form{
   grid-template-columns: repeat(4, 1fr);
 }
 
-.indexInfoDiv{
-  display: grid;
-  grid-template-columns: repeat(2, 0fr);
-  justify-content: center;
-}
-
 .events{
   text-align: center;
   border: 1px solid black;
@@ -114,10 +108,6 @@ form{
   padding-right: 10px;
   color: white;
   text-decoration: underline;
-}
-
-.hidden{
-  display: none;
 }
 
 .attendanceText{
@@ -190,6 +180,12 @@ form{
   text-align: left;
 }
 
+.indexInfoDiv{
+  display: grid;
+  grid-template-columns: repeat(2, 0fr);
+  justify-content: center;
+}
+
 .browseEvents > h4 {
   color: rgb(102, 51, 153);
   font-family: "Outfit", "Monospace";
@@ -202,6 +198,47 @@ form{
   border-width: 0.1em;
   border-radius: 0.25em;
   box-shadow:none;
+}
+
+.indexInfo{
+  background-color: white;
+  border: 1px solid black;
+  padding: 4px;
+  border-radius: 8px;
+  width: 120px;
+  text-align: center;
+}
+
+.indexInfoImage{
+  width: 200px;
+  height: 150px;
+  border: 1px solid black
+}
+
+.indexInfoDesc{
+  border-radius: 8px;
+}
+
+.events{
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 8px;
+  max-width: 400px;
+  margin-top: 20px;
+  background-color: rgb(230, 230, 230);
+  text-align: center;
+}
+
+.myContent{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  color: rgb(102, 51, 153);
+  font-family: "Outfit", "Monospace";
+  font-weight: "bold";
+}
+
+.hidden{
+  display: none;
 }
 
 /*
@@ -246,4 +283,50 @@ form{
 
 .customCarousel {
   margin: 1em;
+}
+
+.content{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.editImage{
+  width: 1600px;
+  height: fit-content
+}
+
+@media only screen and (max-width: 1400px) {
+  .editImage{
+    width: 1200px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .editImage{
+    width: 1000px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .editImage{
+    width: 800px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .editImage{
+    width: 600px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .editImage{
+    width: 400px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .editImage{
+    width: 250px;
+  }
 }

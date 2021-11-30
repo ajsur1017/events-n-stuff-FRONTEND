@@ -4,8 +4,27 @@ import { Link } from "react-router-dom"
 import React from "react"
 
 function MyEvents(props) {
+const [search, setSearch] = useState("")
+
+const [toggle, setToggle] = useState({set: false})
+
+const showAttending = (event) => {
+    setToggle({ ...toggle, set: false});
+  };
+
+const showHosted = () => {
+    setToggle({ ...toggle, set: true});
+}
+
   const loadedAtt = () => {
+      console.log(toggle.set)
     return props.event.filter(foundEvent => {
+        if (search === "") {
+          return foundEvent;
+        } else if (foundEvent.name.toLowerCase().includes(search.toLowerCase()) || foundEvent.location.toLowerCase().includes(search.toLowerCase())) {
+          return foundEvent
+        }
+      }).filter(foundEvent => {
       if (foundEvent.attendees.includes(props.user)) {
         return foundEvent;
       }
@@ -43,9 +62,9 @@ function MyEvents(props) {
         <img className="indexInfoImage" src={events.image} alt={events.name} />
         <div className="indexInfoDiv">
           <p className="labels">Organizer</p> <p className="indexInfo">{events.organizer}</p>
+          <p className="labels">Date</p><p className="indexInfo">{new Date(events.date).toDateString()}</p>
           <p className="labels">Location</p> <p className="indexInfo">{events.location}</p>
           <p className="labels">Price</p> <p className="indexInfo">{events.cost}</p>
-          <p className="labels">Date</p><p className="indexInfo">{new Date(events.date).toDateString()}</p>
           <p className="labels">Attendees</p><p className="indexInfo">{events.attendees.length}</p>
         </div>
       </div>
@@ -57,13 +76,13 @@ function MyEvents(props) {
   };
 
   const logEvents = () => {
-      return <div className="contextBox">
-      <h1>Your Upcoming Events</h1>
-      <div className="content">
-        {props.event ? loadedAtt() : loading()}</div>
-        <h1>Your Hosted Events</h1>
-        <div className="content">
-        {props.event ? loadedOrg() : loading()}</div></div>
+      return <><div className="browseEvents">
+      {toggle.set ? <h4>Hosted Events</h4> : <h4>Attending Events</h4>} 
+      <input className="searchBar" placeholder="Browse..." onChange={event => setSearch(event.target.value)} />
+      </div>
+      {toggle.set ? <button onClick={showAttending}>Show Attending</button> : <button onClick={showHosted}>Show Hosted</button>} 
+       {toggle.set ? <div className="myContent">{props.event ? loadedOrg() : loading()}</div> : <div className="myContent">{props.event ? loadedAtt() : loading()}</div>}
+       </>
   }
   
   return (

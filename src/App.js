@@ -35,8 +35,6 @@ function App() {
             <Route exact path="/"/>
             <Route path="/signup" render={(rp => <Signup {...rp} />)} />
             <Route path="/login" render={(rp => <Login {...rp} />)} />
-
-            {/* <Route path="/dashboard" render={(rp => <h1>Dashboard</h1>)} /> */}
           </Switch>
         </main>
         <Main user={gState.username}/>

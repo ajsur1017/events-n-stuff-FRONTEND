@@ -26,6 +26,7 @@ function Show(props) {
 
   const eventEdit = () => {
       return <>
+  <h4>Update Event</h4>
   <div className="eventForm">
   <form onSubmit={handleSubmit}>
     <input
@@ -81,13 +82,13 @@ function Show(props) {
   const submitAttendance = () => {
     editForm.attendees.push(props.user)
     props.updateEvent(editForm, events._id)
-    props.history.push("/")
+    props.history.push("/myevents")
   }
 
   const revokeAttendance = () => {
     editForm.attendees = editForm.attendees.filter(attender => attender != props.user)
     props.updateEvent(editForm, events._id)
-    props.history.push("/")
+    props.history.push("/myevents")
   }
 
   const attendEvent = () => {
@@ -139,7 +140,7 @@ const checkLogin = () => {
       <img className="imageShow" src={events.image} alt={events.name} /><br />
       <div className="indexHeader">
       {props.user ? checkLogin() : null}
-      {eventEdit()}
+      {props.user == events.organizer ? eventEdit() : null}
   </div>
     </div> 
   )
