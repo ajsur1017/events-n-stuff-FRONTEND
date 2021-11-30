@@ -12,7 +12,7 @@ Want to get to your Event-Planning? Check out <a href="https://events-n-stuff.ne
 
 ## Mission
 
-Create an application that allows logged-in users to create events, publicize events, edit events, and delete events. Any user is able to access the site freely and view details on any events that have been posted to the site.
+Create an application that allows logged-in users to create events, publicize events, edit events, and delete events. Any user is able to access the site freely and view details on any events that have been posted to the site, and logged in users have the ability to edit their own events, schedule attendance at any event, post new events, and view any events they host or attend.
 
 ## Technologies Used 
 
@@ -30,6 +30,7 @@ Create an application that allows logged-in users to create events, publicize ev
 - Allow full CRUD functionality
 - Create User Authentication / Authorization
 - Create Search Functionality
+- Incorporate Bootstrap
 
 ## Stretch Goals
 
@@ -39,25 +40,29 @@ Create an application that allows logged-in users to create events, publicize ev
 
 The Events n' Stuff website was created to allow users to browse/search events, create an account, and create/update/delete events. Users will access the site and be presented with the below index:
 
-<img src="https://imgur.com/GyswN5i.png"/>
+<img src="https://imgur.com/EoAM825.png"/>
+
+Users can utilize the Search bar to browse events and filter the Carousel by Location/Name:
+
+<img src="https://imgur.com/ipPLT5h"/>
 
 Users can select "Login" or "Sign Up" in the top right and be presented with the below sign-in and login screens:
 
-<img src="https://imgur.com/5xRtdqm.png"/>
+<img src="https://imgur.com/h4zVC2N.png"/>
 
-<img src="https://imgur.com/iqs56W7.png"/>
-
-Logged-in or logged-out users can utilize the Search bar to browse events by Name or Location:
-
-<img src="https://imgur.com/eWVnDFz.png"/>
+<img src="https://imgur.com/UqMkVsY.png"/>
 
 Logged-in users can access the access the Create Event option on the site, inaccessible unauthenticated users:
 
-<img src="https://imgur.com/caiVa6A.png"/>
+<img src="https://imgur.com/uRLzjkg.png"/>
 
-Any users can click on the Linked event name to access its "Show" page. Only logged-in users have the ability to update or delete information altogether:
+Any users can click on the Linked event name to access its "Show" page. Only logged-in users have the ability to update or delete information for their own events, and only logged-in users can access the Attend option for events:
 
-<img src="https://imgur.com/9izcsFm.png"/>
+<img src="https://imgur.com/T3oAIRb.png"/>
+
+Logged in users can access their My Events page to view created events that they host, or pivot to a list of events they attend:
+
+<img src="https://imgur.com/Bz2Z2hl.png"/>
 
 ## Code Snippets
 
@@ -66,7 +71,7 @@ Any users can click on the Linked event name to access its "Show" page. Only log
 App.js
 
 Checked for Logged in User:
-<img src="https://imgur.com/dGX8l0o.png"/>
+<img src="https://imgur.com/cEOenqQ.png"/>
 
 Feed Global State Token to Main and Login/Signup Component:s
 <img src="https://imgur.com/Ia4Za0l.png"/>
@@ -77,9 +82,12 @@ Login.js
 Singup.js
 <img src="https://imgur.com/O7HgDcV.png"/>
 
-### Search / Filter / Map Function
+### Search / Filter / Map Function / Carousel
 Index.js
-<img src="https://imgur.com/VoKGQIV.png"/>
+<img src="https://imgur.com/D2cP4fw.png"/>
+
+MyEvents.js
+<img src="https://imgur.com/SFioayp.png"/>
 
 ### Conditional User Authorization
 
@@ -94,7 +102,7 @@ Update/Delete Event:
 ## Contributor Info
 
 Anthony Surace<br>
-Release Manager / Lead Backend Developer<br>
+Release Manager / Backend Developer<br>
 <a href="https://github.com/ajsur1017">Anthony's Github</a>
 
 Tom Ames<br>
