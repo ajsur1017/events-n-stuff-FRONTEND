@@ -1,6 +1,7 @@
-import React, { Component, useState } from "react"
-import { Link } from "react-router-dom"
-import { GlobalCtx } from "../App"
+import React, { Component, useState } from "react";
+import { Link } from "react-router-dom";
+import { GlobalCtx } from "../App";
+import {Form, Button} from "react-bootstrap";
 
 const Login = (props) => {
     const { gState, setGState } = React.useContext(GlobalCtx)
@@ -61,21 +62,21 @@ const Login = (props) => {
             })
     }
     return (
-        <>
+        <div className={"loginDiv"}>
             <h1 className="loginWelcome">Welcome to Events n' Stuff</h1>
             <p>Login with your account below.</p>
             <div className="authBox">
                 <form className="loginBox" onSubmit={handleSubmit}>
-                    <input id="inputSignup" placeholder="Enter Username" type="text" name="username" value={form.username} onChange={handleChange} />
-                    <input id="inputSignup" placeholder="Enter Password" type="password" name="password" value={form.password} onChange={handleChange} />
+                    <input id="inputSignup" placeholder="Username" type="text" name="username" value={form.username} onChange={handleChange} />
+                    <input id="inputSignup" placeholder="Password" type="password" name="password" value={form.password} onChange={handleChange} />
                     <div className="inputButton">
                         <input className="loginButton" type="submit" value="Login" /></div>
                 </form>                     
             </div>
             {error&&<p id="errorMsg">{error}</p>}
-                    <div className="login">Sign Up</div>
-            <p>Don't have an account? Sign up <Link to="/signup">here</Link></p>
-        </>
+                    <div className="login"></div>
+            <p>Don't have an account? <Link to="/signup">Sign Up</Link></p>
+        </div>
     )
 }
 export default Login
