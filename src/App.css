@@ -180,8 +180,51 @@ form{
   align-content: left;
 }*/
 
+.purpleText {
+  color:rgb(102, 51, 153);
+  font-weight: bold;
+}
+
+.purpleButton {
+  background-color: rgb(102, 51, 153);
+  color: white;
+  border: none;
+  text-align: center;
+  border-radius: 8px;
+  margin-left: 10px;
+  height: 2em;
+}
+
 
 /* Index Page Styling  */
+
+.myEvents{
+  margin: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: left;
+  text-align: left;
+}
+
+.showCenter{
+  color:rgb(102, 51, 153);
+  text-align: center;
+}
+
+.myEvents > h4{
+  color: rgb(102, 51, 153);
+  font-family: "Outfit", "Monospace";
+  font-weight: "bold";
+}
+
+.myEvents > input {
+  height: 1.5em;
+  border-color: #444950;
+  border-width: 0.1em;
+  border-radius: 0.25em;
+  box-shadow:none;
+}
 
 .browseEvents{
   margin: 1em;
@@ -192,9 +235,39 @@ form{
   text-align: left;
 }
 
+.button{
+  background-color: rgb(102, 51, 153);
+  color: white;
+  text-align: center;
+  border-radius: 8px;
+  margin-left: 10px;
+  height: 30px;
+}
+
 .indexInfoDiv{
-  display: grid;
-  grid-template-columns: repeat(2, 0fr);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.showTagForm{
+  margin-top: 40px;
+}
+
+.labels{
+  margin-top: 8px;
+  color: white;
+  background-color: rgb(102, 51, 153);
+  border: 1px solid black;
+  padding: 4px;
+  border-radius: 8px;
+  width: 200px;
+  text-align: center;
+}
+
+.centerContent{
+  display: flex;
+  flex-direction: row;
   justify-content: center;
 }
 
@@ -210,6 +283,91 @@ form{
   border-width: 0.1em;
   border-radius: 0.25em;
   box-shadow: none;
+}
+
+/* Show Page Styling */
+
+div.showBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: left;
+  margin-top: 2.5em;
+}
+
+img.showImage {
+  height: 25em;
+  margin: 10em, auto;
+}
+
+div.showDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+div.showHeader {
+  text-align: center;
+}
+
+span.showOrganizer {
+  color: rgb(102, 51, 153);
+  font-weight: bolder;
+}
+
+.showEventTitle {
+  text-align: center;
+  color: rgb(102, 51, 153);
+  font-weight: bolder;
+}
+
+.showAttendance {
+  margin-top: 1em;
+  margin-bottom: 2.5em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Create Event */
+
+div.createBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  margin-top: 2.5em;
+}
+
+div.formCreate > form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  padding: 1em;
+}
+
+h1.createHeading {
+  text-align: center;
+  color: rgb(102, 51, 153);
+  font-weight: bolder;
+}
+
+input.createButton {
+  border: none;
+  background-color: rgb(102, 51, 153);
+  border-color: rgb(102, 51, 153);
+  border-radius: 0.25em;
+  color:lightgrey;
+  font-weight: bold;
+  font-size: 0.75em;
+  width: 10em;
+  margin-top: 2.5em;
+  margin-bottom: 5em;
 }
 
 /* Footer Styling */
@@ -253,6 +411,8 @@ div.loginDiv {
   justify-content: space-evenly;
   align-items: center;
   text-align: center;
+  margin-bottom: 2.5em;
+  margin-top: 2.5em;
 }
 
 h1.loginWelcome {
@@ -285,7 +445,8 @@ input.loginButton {
   font-weight: bold;
   font-size: 0.75em;
   width: 10em;
-  margin-bottom: 5em;
+  margin-top: 2.5em;
+  margin-bottom: 2.5em;
 }
 
 /* Sign Up Styling */
@@ -296,7 +457,7 @@ input.loginButton {
   border: 1px solid black;
   padding: 4px;
   border-radius: 8px;
-  width: 120px;
+  width: 200px;
   text-align: center;
 }
 
@@ -314,7 +475,7 @@ input.loginButton {
   text-align: center;
   border: 1px solid black;
   border-radius: 8px;
-  max-width: 400px;
+  max-width: 600px;
   margin-top: 20px;
   background-color: rgb(230, 230, 230);
   text-align: center;
@@ -322,14 +483,34 @@ input.loginButton {
 
 .myContent{
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 2fr);
   color: rgb(102, 51, 153);
   font-family: "Outfit", "Monospace";
   font-weight: "bold";
 }
 
+.events > a {
+  text-decoration: none;
+}
+
+.events > a > h1{
+  font-size: 20px;
+  color: rgb(102, 51, 153);
+}
+
 .hidden{
   display: none;
+}
+
+/* Universal Vertical Align Group */
+
+.verticalAlignBlock {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 /*
@@ -387,6 +568,16 @@ input.loginButton {
   height: fit-content
 }
 
+@media only screen and (max-width: 1600px) {
+  .myContent{
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    color: rgb(102, 51, 153);
+    font-family: "Outfit", "Monospace";
+    font-weight: "bold";
+  }
+}
+
 @media only screen and (max-width: 1400px) {
   .editImage{
     width: 1200px;
@@ -394,6 +585,14 @@ input.loginButton {
 }
 
 @media only screen and (max-width: 1200px) {
+  .myContent{
+    display: grid;
+    grid-template-columns: repeat(1, 2fr);
+    color: rgb(102, 51, 153);
+    font-family: "Outfit", "Monospace";
+    font-weight: "bold";
+  }
+  
   .editImage{
     width: 1000px;
   }
@@ -413,6 +612,23 @@ input.loginButton {
 @media only screen and (max-width: 600px) {
   .editImage{
     width: 400px;
+  }
+  .events{
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 8px;
+    max-width: 400px;
+    margin-top: 20px;
+    background-color: rgb(230, 230, 230);
+    text-align: center;
+  }
+  .myEvents{
+    margin: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: left;
+    text-align: center;
   }
 }
 

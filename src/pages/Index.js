@@ -20,7 +20,7 @@ function Index(props) {
             className="d-block w-100"
             src={event.image}
             alt=""
-            style={{height : "50em"}}
+            style={{height : "30em"}}
             fluid
           /></div></Link>
         <Carousel.Caption>
@@ -33,7 +33,7 @@ function Index(props) {
 
   const loaded = () => {
     return (
-      <Carousel style={{margin : "1em"}}>
+      <Carousel style={{margin : "1em", marginBottom: "2.5em"}}>
         {props.event ? generateCarousel() : null}
       </Carousel>
     )
