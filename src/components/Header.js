@@ -6,8 +6,6 @@ import { GlobalCtx } from "../App"
 function Header(props) {
   const { gState, setGState } = React.useContext(GlobalCtx)
 
-  //Conditional Right Side of NavBar
-
   const colorNavItem = "rgb(102, 51, 153)";
   const colorNavBar = null;
 
@@ -39,7 +37,7 @@ function Header(props) {
 
   const yesCreate = (
       <Nav.Item>
-        <Nav.Link href="/" style={{ color: `${colorNavItem}` }}><i className={"bi-vector-pen"} style={{ color: `${colorNavItem}` }}></i></Nav.Link >
+        <Nav.Link href="/createvent" style={{ color: `${colorNavItem}` }}><i className={"bi-vector-pen"} style={{ color: `${colorNavItem}` }}></i></Nav.Link >
       </Nav.Item>
   )
 
@@ -47,7 +45,7 @@ function Header(props) {
     <Navbar bg="light">
       <Container>
         <Navbar.Brand href="#home" className="justify-content-start" ><Link to="/" style={{ color: `${colorNavItem}` }}><i className={"bi-house-fill"}></i></Link></Navbar.Brand>
-        <Nav className={"justify-content-start"}>
+        <Nav className={"me-auto"}>
           {gState.token ? yesCreate : null}
         </Nav>
         <Nav className="justify-content-end" activeKey="/home">
