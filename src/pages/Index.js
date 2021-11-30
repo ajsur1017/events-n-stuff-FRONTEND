@@ -15,13 +15,14 @@ function Index(props) {
     }).map((event) => (
       <Carousel.Item key={event._id}>
         <Link to={`/events/${event._id}`}>
+            <div className="editImage">
           <Image
             className="d-block w-100"
             src={event.image}
             alt=""
-            style={{height : "20em"}}
+            style={{height : "50em"}}
             fluid
-          /></Link>
+          /></div></Link>
         <Carousel.Caption>
           <h3>{event.name}</h3>
           <p>{event.description}</p>
