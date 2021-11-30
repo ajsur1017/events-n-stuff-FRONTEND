@@ -7,6 +7,7 @@ function Header(props) {
   const { gState, setGState } = React.useContext(GlobalCtx)
 
   const colorNavItem = "rgb(102, 51, 153)";
+  const colorNavBar = "rgba(232, 232, 232, 0.80)";
 
   //If User Logged In:
   const yesUser = (
@@ -41,7 +42,7 @@ function Header(props) {
   )
 
   return (
-    <Navbar bg="light">
+    <Navbar style={{ backgroundColor: `${colorNavBar}` }}>
       <Container>
         <Navbar.Brand href="#home" className="justify-content-start" ><Link to="/" style={{ color: `${colorNavItem}` }}><i className={"bi-house-fill"}></i></Link></Navbar.Brand>
         <Nav className={"me-auto"}>
