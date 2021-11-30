@@ -75,7 +75,7 @@ const Login = (props) => {
             </div>
             {error&&<p id="errorMsg">{error}</p>}
                     <div className="login"></div>
-            <p>Don't have an account? <Link to="/signup">Sign Up</Link></p>
+            <p>Don't have an account? <Link to="/signup" className={"loginredirect"} >Sign Up</Link></p>
         </div>
     )
 }

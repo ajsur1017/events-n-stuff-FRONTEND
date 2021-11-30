@@ -258,6 +258,15 @@ form.loginBox {
   justify-content: space-evenly;
 }
 
+input.inputSignup {
+  width: 5em;
+}
+
+.loginredirect {
+  color: rgb(102, 51, 153);
+  text-decoration: none;
+}
+
 input.loginButton {
   border: none;
   background-color: rgb(102, 51, 153);
@@ -269,6 +278,10 @@ input.loginButton {
   width: 10em;
   margin-bottom: 5em;
 }
+
+/* Sign Up Styling */
+
+
 
 /*
 @media (prefers-reduced-motion: no-preference) {
