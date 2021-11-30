@@ -112,4 +112,3 @@ Product Manager / Front-End Developer <br>
 Nick Davis<br>
 Product Manager / Front-End Developer <br>
 <a href="https://github.com/nickdavis1018">Nick's Github</a>
-

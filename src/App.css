@@ -386,6 +386,12 @@ div.footer {
   width:100%;
 }
 
+.caption{
+  background-color: rgba(102, 51, 153, 0.80);
+  border-radius: 50px;
+  
+}
+
 div.footer > div {
   color: lightgrey;
   font-size: 0.5em;
