@@ -26,9 +26,9 @@ function Show(props) {
 
   const eventEdit = () => {
       return <>
-  <h4>Update Event</h4>
+  <h4 className="showTagForm">Update/Delete Event</h4>
   <div className="eventForm">
-  <form onSubmit={handleSubmit}>
+  <form className="editForm" onSubmit={handleSubmit}>
     <input
       type="text"
       value={editForm.name}
@@ -130,7 +130,7 @@ const checkLogin = () => {
 }
 
   return (
-    <div>
+    <div className="showCenter">
       <h1>{events.name}</h1>
       <h3>Date: {new Date(events.date).toDateString()}</h3>
       <h3>Organizer: {events.organizer}</h3>
@@ -140,9 +140,8 @@ const checkLogin = () => {
       <img className="imageShow" src={events.image} alt={events.name} /><br />
       <div className="indexHeader">
       {props.user ? checkLogin() : null}
-      {props.user == events.organizer ? eventEdit() : null}
+      {props.user == events.organizer ? eventEdit() : null}</div>
   </div>
-    </div> 
   )
 }
 
