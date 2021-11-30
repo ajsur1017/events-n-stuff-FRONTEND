@@ -8,16 +8,19 @@ function Header(props) {
 
   //Conditional Right Side of NavBar
 
+  const colorNavItem = "rgb(102, 51, 153)";
+  const colorNavBar = null;
+
   //If User Logged In:
   const logout = (
     <>
-      <Nav.Link href="/myevents" className={"nav-link"} style={{ color: "#382633" }}><i className={"bi-people-fill"}> {gState.username}</i></Nav.Link>
-      <Nav.Link className={"nav-link"} style={{ color: "#614258" }}>
-        <i className={"bi-x-circle"} style={{ color: "#614258" }} onClick={() => {
+      <Nav.Link href="/myevents" className={"nav-link"} style={{ color: `${colorNavItem}` }}><i className={"bi-people-fill"}> {gState.username}</i></Nav.Link>
+      <Nav.Link className={"nav-link"}>
+        <i className={"bi-x-circle"} style={{ color: `${colorNavItem}` }} onClick={() => {
           window.localStorage.removeItem("token")
           window.localStorage.removeItem("username")
           setGState({ ...gState, token: null, username: null})
-        }}>Logout</i>
+        }}></i>
       </Nav.Link>
     </>
   )
@@ -26,19 +29,22 @@ function Header(props) {
   const login = (
     <>
       <Nav.Item>
-        <Nav.Link href="/signup" style={{ color: "#382633" }}><i className={"bi-plus-circle"} style={{ color: "#382633" }}></i> Sign Up</Nav.Link>
+        <Nav.Link href="/signup" style={{ color: `${colorNavItem}` }}><i className={"bi-plus-circle"} style={{ color: `${colorNavItem}` }}></i></Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        <Nav.Link href="/login" style={{ color: "#382633" }}><i className={"bi-arrow-up-right-circle"} style={{ color: "#382633"}}></i> Login</Nav.Link >
+        <Nav.Link href="/login" style={{ color: `${colorNavItem}` }}><i className={"bi-arrow-up-right-circle"} style={{ color: `${colorNavItem}`}}></i></Nav.Link >
       </Nav.Item>
     </>
   )
 
   return (
-    <Navbar style={{ backgroundColor: "#F2CC8F" }}>
+    <Navbar bg="light">
       <Container>
-        <Navbar.Brand href="#home" className="justify-content-start" ><Link to="/" style={{ color: "rgb(102, 51, 153)" }}><i className={"bi-house-fill"}></i></Link></Navbar.Brand>
-        <Nav className="justify-content-center" activeKey="/home">
+        <Navbar.Brand href="#home" className="justify-content-start" ><Link to="/" style={{ color: `${colorNavItem}` }}><i className={"bi-house-fill"}></i></Link></Navbar.Brand>
+        <Nav className={}>
+          
+        </Nav>
+        <Nav className="justify-content-end" activeKey="/home">
           {gState.token ? logout : login}
         </Nav>
       </Container>
