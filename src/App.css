@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -68,12 +68,6 @@ form{
   grid-template-columns: repeat(4, 1fr);
 }
 
-.indexInfoDiv{
-  display: grid;
-  grid-template-columns: repeat(2, 0fr);
-  justify-content: center;
-}
-
 .events{
   text-align: center;
   border: 1px solid black;
@@ -114,10 +108,6 @@ form{
   padding-right: 10px;
   color: white;
   text-decoration: underline;
-}
-
-.hidden{
-  display: none;
 }
 
 .attendanceText{
@@ -176,12 +166,228 @@ form{
 .indexHeader{
   text-align: left;
   align-content: left;
-}
+}*/
 
-.browseEvents{
+
+/* Index Page Styling  */
+
+.myEvents{
+  margin: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: left;
   text-align: left;
 }
 
+.showCenter{
+  color:rgb(102, 51, 153);
+  text-align: center;
+}
+
+.myEvents > h4{
+  color: rgb(102, 51, 153);
+  font-family: "Outfit", "Monospace";
+  font-weight: "bold";
+}
+
+.myEvents > input {
+  height: 1.5em;
+  border-color: #444950;
+  border-width: 0.1em;
+  border-radius: 0.25em;
+  box-shadow:none;
+}
+
+.browseEvents{
+  margin: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: left;
+  text-align: left;
+}
+
+.button{
+  background-color: rgb(102, 51, 153);
+  color: white;
+  text-align: center;
+  border-radius: 8px;
+  margin-left: 10px;
+  height: 30px;
+}
+
+.indexInfoDiv{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.showTagForm{
+  margin-top: 40px;
+}
+
+.labels{
+  margin-top: 8px;
+  color: white;
+  background-color: rgb(102, 51, 153);
+  border: 1px solid black;
+  padding: 4px;
+  border-radius: 8px;
+  width: 200px;
+  text-align: center;
+}
+
+.centerContent{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.browseEvents > h4 {
+  color: rgb(102, 51, 153);
+  font-family: "Outfit", "Monospace";
+  font-weight: "bold";
+}
+
+.browseEvents > input {
+  height: 1.5em;
+  border-color: #444950;
+  border-width: 0.1em;
+  border-radius: 0.25em;
+  box-shadow:none;
+}
+
+/* Footer Styling */
+
+div.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 1.5em;
+  padding: 0em;
+  background-color: rgba(102, 51, 153, 0.80);
+  margin-top: 2.5em;
+  position: fixed;
+  bottom: 0;
+}
+
+div.footer > div {
+  color: lightgrey;
+  font-size: 0.5em;
+  text-decoration: none;
+}
+
+div.footer > div > a {
+  color: lightgrey;
+  text-decoration: none;
+}
+
+div.footer > a {
+  color: lightgrey;
+  font-size: 0.5em;
+  text-decoration: none;
+}
+
+/* Login Page Styling */
+
+div.loginDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+}
+
+h1.loginWelcome {
+  text-align: center;
+  color: rgb(102, 51, 153);
+  font-weight: bolder;
+}
+
+form.loginBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+input.inputSignup {
+  width: 5em;
+}
+
+.loginredirect {
+  color: rgb(102, 51, 153);
+  text-decoration: none;
+}
+
+input.loginButton {
+  border: none;
+  background-color: rgb(102, 51, 153);
+  border-color: rgb(102, 51, 153);
+  border-radius: 0.25em;
+  color:lightgrey;
+  font-weight: bold;
+  font-size: 0.75em;
+  width: 10em;
+  margin-bottom: 5em;
+}
+
+/* Sign Up Styling */
+
+
+.indexInfo{
+  background-color: white;
+  border: 1px solid black;
+  padding: 4px;
+  border-radius: 8px;
+  width: 200px;
+  text-align: center;
+}
+
+.indexInfoImage{
+  width: 200px;
+  height: 150px;
+  border: 1px solid black
+}
+
+.indexInfoDesc{
+  border-radius: 8px;
+}
+
+.events{
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 8px;
+  max-width: 600px;
+  margin-top: 20px;
+  background-color: rgb(230, 230, 230);
+  text-align: center;
+}
+
+.myContent{
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+  color: rgb(102, 51, 153);
+  font-family: "Outfit", "Monospace";
+  font-weight: "bold";
+}
+
+.events > a {
+  text-decoration: none;
+}
+
+.events > a > h1{
+  font-size: 20px;
+  color: rgb(102, 51, 153);
+}
+
+
+.hidden{
+  display: none;
+}
+
+/*
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -210,18 +416,98 @@ form{
   to {
     transform: rotate(360deg);
   }
-}
+} */ 
 
 /* SIGNUP FORM */
-#inputSignup {
+/* #inputSignup {
   padding: 5px;
   margin: 8px;
+
+}*/
+
+/* Carousel Styling */
+
+.customCarousel {
+  margin: 1em;
 }
 
-#errorMsg {
-  color: red;
-  font-size: 20px;
-  border: 2px;
-  border-style: double;
+.content{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.editImage{
+  width: 1600px;
+  height: fit-content
+}
+
+@media only screen and (max-width: 1600px) {
+  .myContent{
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    color: rgb(102, 51, 153);
+    font-family: "Outfit", "Monospace";
+    font-weight: "bold";
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .editImage{
+    width: 1200px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .myContent{
+    display: grid;
+    grid-template-columns: repeat(1, 2fr);
+    color: rgb(102, 51, 153);
+    font-family: "Outfit", "Monospace";
+    font-weight: "bold";
+  }
   
+  .editImage{
+    width: 1000px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .editImage{
+    width: 800px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .editImage{
+    width: 600px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .editImage{
+    width: 400px;
+  }
+  .events{
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 8px;
+    max-width: 400px;
+    margin-top: 20px;
+    background-color: rgb(230, 230, 230);
+    text-align: center;
+  }
+  .myEvents{
+    margin: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: left;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .editImage{
+    width: 250px;
+  }
 }

@@ -39,13 +39,13 @@ const Signup = (props) => {
 
     }
     return (
-        <>
+        <div className={"loginDiv"}>
             <h1 className="loginWelcome">Welcome to Events n' Stuff</h1>
             <p>Sign up for free today.</p>
             <div className="authBox">
                 <form className="loginBox" onSubmit={handleSubmit}>
-                    <input id="inputSignup" placeholder="Create Username" type="text" name="username" value={form.username} onChange={handleChange} />
-                    <input id="inputSignup" placeholder="Create Password" type="password" name="password" value={form.password} onChange={handleChange} />
+                    <input id="inputSignup" placeholder="Username" type="text" name="username" value={form.username} onChange={handleChange} />
+                    <input id="inputSignup" placeholder="Password" type="password" name="password" value={form.password} onChange={handleChange} />
                     <input id="inputSignup" placeholder="First Name" type="text" name="firstName" value={form.firstName} onChange={handleChange} />
                     <input id="inputSignup" placeholder="Last Name" type="text" name="lastName" value={form.lastName} onChange={handleChange} />
                     <input id="inputSignup" placeholder="Email" type="email" name="email" value={form.email} onChange={handleChange} />
@@ -53,8 +53,8 @@ const Signup = (props) => {
                         <input className="loginButton" type="submit" value="Sign Up" /></div>
                 </form>
             </div>
-            <p>Already have an account? Login <Link to="/login">here</Link></p>
-        </>
+            <p>Already have an account? <Link to="/login" className={"loginredirect"}>Login</Link></p>
+        </div>
     )
 }
 export default Signup
