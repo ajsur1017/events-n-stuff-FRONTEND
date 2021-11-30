@@ -7,7 +7,6 @@ function Header(props) {
   const { gState, setGState } = React.useContext(GlobalCtx)
 
   const colorNavItem = "rgb(102, 51, 153)";
-  const colorNavBar = null;
 
   //If User Logged In:
   const yesUser = (
@@ -23,6 +22,12 @@ function Header(props) {
     </>
   )
 
+  const yesCreate = (
+    <Nav.Item>
+      <Nav.Link href="/createvent" style={{ color: `${colorNavItem}` }}><i className={"bi-vector-pen"} style={{ color: `${colorNavItem}` }}></i></Nav.Link >
+    </Nav.Item>
+  )
+
   //If User Logged Out
   const noUser = (
     <>
@@ -33,12 +38,6 @@ function Header(props) {
         <Nav.Link href="/login" style={{ color: `${colorNavItem}` }}><i className={"bi-arrow-up-right-circle"} style={{ color: `${colorNavItem}`}}></i></Nav.Link >
       </Nav.Item>
     </>
-  )
-
-  const yesCreate = (
-      <Nav.Item>
-        <Nav.Link href="/createvent" style={{ color: `${colorNavItem}` }}><i className={"bi-vector-pen"} style={{ color: `${colorNavItem}` }}></i></Nav.Link >
-      </Nav.Item>
   )
 
   return (
