@@ -22,10 +22,11 @@ function Index(props) {
             alt=""
             style={{height : "30em"}}
             fluid
-          /></div></Link>
+          /></div></Link> 
         <Carousel.Caption>
+        <div className="caption">
           <h3>{event.name}</h3>
-          <p>{event.description}</p>
+          <p>{event.description}</p></div>
         </Carousel.Caption>
       </Carousel.Item>
     ));
