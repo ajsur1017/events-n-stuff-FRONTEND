@@ -171,6 +171,34 @@ form{
 
 /* Index Page Styling  */
 
+.myEvents{
+  margin: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: left;
+  text-align: left;
+}
+
+.showCenter{
+  color:rgb(102, 51, 153);
+  text-align: center;
+}
+
+.myEvents > h4{
+  color: rgb(102, 51, 153);
+  font-family: "Outfit", "Monospace";
+  font-weight: "bold";
+}
+
+.myEvents > input {
+  height: 1.5em;
+  border-color: #444950;
+  border-width: 0.1em;
+  border-radius: 0.25em;
+  box-shadow:none;
+}
+
 .browseEvents{
   margin: 1em;
   display: flex;
@@ -180,9 +208,39 @@ form{
   text-align: left;
 }
 
+.button{
+  background-color: rgb(102, 51, 153);
+  color: white;
+  text-align: center;
+  border-radius: 8px;
+  margin-left: 10px;
+  height: 30px;
+}
+
 .indexInfoDiv{
-  display: grid;
-  grid-template-columns: repeat(2, 0fr);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.showTagForm{
+  margin-top: 40px;
+}
+
+.labels{
+  margin-top: 8px;
+  color: white;
+  background-color: rgb(102, 51, 153);
+  border: 1px solid black;
+  padding: 4px;
+  border-radius: 8px;
+  width: 200px;
+  text-align: center;
+}
+
+.centerContent{
+  display: flex;
+  flex-direction: row;
   justify-content: center;
 }
 
@@ -341,7 +399,7 @@ input.loginButton {
   border: 1px solid black;
   padding: 4px;
   border-radius: 8px;
-  width: 120px;
+  width: 200px;
   text-align: center;
 }
 
@@ -359,7 +417,7 @@ input.loginButton {
   text-align: center;
   border: 1px solid black;
   border-radius: 8px;
-  max-width: 400px;
+  max-width: 600px;
   margin-top: 20px;
   background-color: rgb(230, 230, 230);
   text-align: center;
@@ -367,10 +425,19 @@ input.loginButton {
 
 .myContent{
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 2fr);
   color: rgb(102, 51, 153);
   font-family: "Outfit", "Monospace";
   font-weight: "bold";
+}
+
+.events > a {
+  text-decoration: none;
+}
+
+.events > a > h1{
+  font-size: 20px;
+  color: rgb(102, 51, 153);
 }
 
 .hidden{
@@ -443,6 +510,16 @@ input.loginButton {
   height: fit-content
 }
 
+@media only screen and (max-width: 1600px) {
+  .myContent{
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    color: rgb(102, 51, 153);
+    font-family: "Outfit", "Monospace";
+    font-weight: "bold";
+  }
+}
+
 @media only screen and (max-width: 1400px) {
   .editImage{
     width: 1200px;
@@ -450,6 +527,14 @@ input.loginButton {
 }
 
 @media only screen and (max-width: 1200px) {
+  .myContent{
+    display: grid;
+    grid-template-columns: repeat(1, 2fr);
+    color: rgb(102, 51, 153);
+    font-family: "Outfit", "Monospace";
+    font-weight: "bold";
+  }
+  
   .editImage{
     width: 1000px;
   }
@@ -469,6 +554,23 @@ input.loginButton {
 @media only screen and (max-width: 600px) {
   .editImage{
     width: 400px;
+  }
+  .events{
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 8px;
+    max-width: 400px;
+    margin-top: 20px;
+    background-color: rgb(230, 230, 230);
+    text-align: center;
+  }
+  .myEvents{
+    margin: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: left;
+    text-align: center;
   }
 }
 

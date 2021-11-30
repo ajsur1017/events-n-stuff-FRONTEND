@@ -35,6 +35,7 @@ const [newForm, setNewForm] = useState({
       organizer: "",
       attendees: []
     });
+    props.history.push("/")
   };
 
   const createOption = () => {
