@@ -139,7 +139,7 @@ const checkLogin = () => {
       <img className="imageShow" src={events.image} alt={events.name} /><br />
       <div className="indexHeader">
       {props.user ? checkLogin() : null}
-      {props.user === events.organizer ? eventEdit() : null}
+      {eventEdit()}
   </div>
     </div> 
   )
