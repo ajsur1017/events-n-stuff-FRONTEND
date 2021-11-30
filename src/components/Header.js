@@ -12,7 +12,8 @@ function Header(props) {
   //If User Logged In:
   const yesUser = (
     <>
-      <Nav.Link href="/myevents" className={"nav-link"} style={{ color: `${colorNavItem}` }}><i className={"bi-people-fill"}> {gState.username}</i></Nav.Link>
+    <Link to="/myevents">
+      <Nav.Item  className={"nav-link"} style={{ color: `${colorNavItem}` }}><i className={"bi-people-fill"}> {gState.username}</i></Nav.Item></Link>
       <Nav.Link className={"nav-link"}>
         <i className={"bi-x-circle"} style={{ color: `${colorNavItem}` }} onClick={() => {
           window.localStorage.removeItem("token")
@@ -24,9 +25,8 @@ function Header(props) {
   )
 
   const yesCreate = (
-    <Nav.Item>
-      <Nav.Link href="/createvent" style={{ color: `${colorNavItem}` }}><i className={"bi-vector-pen"} style={{ color: `${colorNavItem}` }}></i></Nav.Link >
-    </Nav.Item>
+    <Link to="/createvent">
+    <Nav.Item style={{ color: `${colorNavItem}` }}><i className={"bi-vector-pen"} style={{ color: `${colorNavItem}` }}></i></Nav.Item></Link>
   )
 
   //If User Logged Out
