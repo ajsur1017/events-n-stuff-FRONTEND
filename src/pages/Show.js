@@ -92,37 +92,39 @@ function Show(props) {
   }
 
   const attendEvent = () => {
-    return <>
-    <h3 className="attendanceText">You are not currently attending {events.name}. Would you like to attend?</h3>
-    <div className="eventForm">
-    <form onSubmit={submitAttendance}>
-    <input
-      className="hidden"
-      type="text"
-      value={editForm.attendees}
-      name="attendees"
-      placeholder="attendees"
-      onChange={handleChange}
-    />
-  <input type="submit" className="button" value="Attend Event" />
-</form></div></>
+    return (
+    <div className={"showAttendance"}>
+      <form className="eventForm" onSubmit={submitAttendance}>
+        <input
+          className="hidden"
+          type="text"
+          value={editForm.attendees}
+          name="attendees"
+          placeholder="attendees"
+          onChange={handleChange}
+        />
+        <input type="submit" className={"purpleButton"} value="Attend Event" />
+      </form>
+    </div>
+  )
 }
 
 const cancelAttend = () => {
-    return <>
-    <h3 className="attendanceText">Looks like you're already attending {events.name}. Would you like to cancel?</h3>
-    <div className="eventForm">
-    <form onSubmit={revokeAttendance}>
-    <input
-      className="hidden"
-      type="text"
-      value={editForm.attendees}
-      name="attendees"
-      placeholder="attendees"
-      onChange={handleChange}
-    />
-  <input type="submit" className="button" value="Revoke Attendance" />
-</form></div></>
+  return (
+    <div className={"showAttendance"}>
+        <form className="eventForm" onSubmit={revokeAttendance}>
+          <input
+            className="hidden"
+            type="text"
+            value={editForm.attendees}
+            name="attendees"
+            placeholder="attendees"
+            onChange={handleChange}
+          />
+          <input type="submit" className={"purpleButton"} value="Revoke Attendance" />
+        </form>
+    </div>
+  )
 }
 
 const checkLogin = () => {
@@ -130,17 +132,25 @@ const checkLogin = () => {
 }
 
   return (
-    <div className="showCenter">
-      <h1>{events.name}</h1>
-      <h3>Date: {new Date(events.date).toDateString()}</h3>
-      <h3>Organizer: {events.organizer}</h3>
-      {events.attendees.length > 0 ? <h3>Current Attendees: {events.attendees.join(', ')}</h3> : <h3>Current Attendees: 0</h3>}
-      <h3>Cost: {events.cost}</h3>
-      <p>{events.description}</p>
-      <img className="imageShow" src={events.image} alt={events.name} /><br />
+    <div className="showBlock">
+      <div className={"showHeader"}>
+        <h1 className={"showEventTitle"}>{events.name}</h1>
+        <p>Organized by <span className={"showOrganizer"}>{events.organizer}</span></p>
+      </div>
+      <img className="showImage" src={events.image} alt={events.name} /><br />
+      <div className={"showDetails"}>
+        <div className={"showSpecifics"}>
+          <p><span className={"purpleText"}>What</span> - {events.description}</p>
+          <p><span className={"purpleText"}>Where</span> - {events.location}</p>
+          <p><span className={"purpleText"}>When</span> - {new Date(events.date).toDateString()}</p>
+          <p><span className={"purpleText"}>How Much</span> - {events.cost}</p>
+        </div>
+      </div>
+      {events.attendees.length > 0 ? <p>Current Attendees: <span className={"purpleText"}>{events.attendees.join(', ')}</span></p> : <p>Current Attendees: 0</p>}
       <div className="indexHeader">
-      {props.user ? checkLogin() : null}
-      {props.user == events.organizer ? eventEdit() : null}</div>
+        {props.user ? checkLogin() : null}
+        {props.user == events.organizer ? eventEdit() : null}
+      </div>
   </div>
   )
 }

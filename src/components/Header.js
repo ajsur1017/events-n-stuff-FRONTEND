@@ -35,7 +35,7 @@ function Header(props) {
       <Nav.Item style={{ color: `${colorNavItem}` }}><i className={"bi-plus-circle"} style={{ color: `${colorNavItem}` }}></i>
       </Nav.Item></Link>
       <Link to="/login">
-      <Nav.Item style={{ color: `${colorNavItem}` }}><i className={"bi-arrow-up-right-circle"} style={{ color: `${colorNavItem}`}}></i>
+      <Nav.Item style={{ color: `${colorNavItem}` }}><i className={"bi-arrow-up-right-circle"} style={{ color: `${colorNavItem}`, marginLeft: "0.75em"}}></i>
       </Nav.Item></Link>
     </>
   )

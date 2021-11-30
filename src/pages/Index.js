@@ -20,7 +20,7 @@ function Index(props) {
             className="d-block w-100"
             src={event.image}
             alt=""
-            style={{height : "50em"}}
+            style={{height : "30em"}}
             fluid
           /></div></Link>
         <Carousel.Caption>
