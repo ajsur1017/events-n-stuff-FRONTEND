@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Carousel, Nav, Image } from 'react-bootstrap';
 
 function Index(props) {
-const [search, setSearch] = useState("")
+  const [search, setSearch] = useState("")
 
   const generateCarousel = () => {
     return props.event.filter(foundEvent => {
