@@ -12,7 +12,7 @@ function Header(props) {
   //If User Logged In:
   const yesUser = (
     <>
-    <Link to="/myevents">
+      <Link to="/myevents" style={{ textDecoration: "none"}}>
       <Nav.Item  className={"nav-link"} style={{ color: `${colorNavItem}` }}><i className={"bi-people-fill"}> {gState.username}</i></Nav.Item></Link>
       <Nav.Link className={"nav-link"}>
         <i className={"bi-x-circle"} style={{ color: `${colorNavItem}` }} onClick={() => {

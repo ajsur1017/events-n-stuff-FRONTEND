@@ -33,7 +33,7 @@ function Index(props) {
 
   const loaded = () => {
     return (
-      <Carousel style={{margin : "1em"}}>
+      <Carousel style={{margin : "1em", marginBottom: "2.5em"}}>
         {props.event ? generateCarousel() : null}
       </Carousel>
     )
