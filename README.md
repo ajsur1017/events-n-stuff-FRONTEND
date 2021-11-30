@@ -44,7 +44,7 @@ The Events n' Stuff website was created to allow users to browse/search events, 
 
 Users can utilize the Search bar to browse events and filter the Carousel by Location/Name:
 
-<img src="https://imgur.com/ipPLT5h"/>
+<img src="https://imgur.com/ipPLT5h.png"/>
 
 Users can select "Login" or "Sign Up" in the top right and be presented with the below sign-in and login screens:
 
