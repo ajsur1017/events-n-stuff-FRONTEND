@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom";
 import Index from "../pages/Index";
 import Show from "../pages/Show";
-import MyEvents from "../pages/MyEvents"
+import MyEvents from "../pages/MyEvents";
 
 function Main(props) {
   const [event, setEvent] = useState(null);

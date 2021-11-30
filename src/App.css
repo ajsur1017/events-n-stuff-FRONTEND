@@ -204,6 +204,35 @@ form{
   box-shadow:none;
 }
 
+/* Footer Styling */
+
+div.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 1.5em;
+  padding: 0em;
+  background-color: rgba(102, 51, 153, 0.80);
+}
+
+div.footer > div {
+  color: lightgrey;
+  font-size: 0.5em;
+  text-decoration: none;
+}
+
+div.footer > div > a {
+  color: lightgrey;
+  text-decoration: none;
+}
+
+div.footer > a {
+  color: lightgrey;
+  font-size: 0.5em;
+  text-decoration: none;
+}
+
 /*
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -239,11 +268,4 @@ form{
 /* #inputSignup {
   padding: 5px;
   margin: 8px;
-}
-
-
-/* Carousel Styling */
-
-.customCarousel {
-  margin: 1em;
-}
+}*/

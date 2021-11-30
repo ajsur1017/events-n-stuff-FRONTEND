@@ -3,9 +3,10 @@ import "./App.css";
 import { Route, Link, Switch } from "react-router-dom"
 
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Main from "./components/Main";
-import Signup from "./pages/Signup"
-import Login from "./pages/Login"
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
 
 //Import React BootStrap
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -40,6 +41,7 @@ function App() {
           </Switch>
         </main>
         <Main user={gState.username}/>
+        <Footer />
       </div>
     </GlobalCtx.Provider>
   );
