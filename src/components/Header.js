@@ -12,7 +12,7 @@ function Header(props) {
   const colorNavBar = null;
 
   //If User Logged In:
-  const logout = (
+  const yesUser = (
     <>
       <Nav.Link href="/myevents" className={"nav-link"} style={{ color: `${colorNavItem}` }}><i className={"bi-people-fill"}> {gState.username}</i></Nav.Link>
       <Nav.Link className={"nav-link"}>
@@ -26,7 +26,7 @@ function Header(props) {
   )
 
   //If User Logged Out
-  const login = (
+  const noUser = (
     <>
       <Nav.Item>
         <Nav.Link href="/signup" style={{ color: `${colorNavItem}` }}><i className={"bi-plus-circle"} style={{ color: `${colorNavItem}` }}></i></Nav.Link>
@@ -37,15 +37,21 @@ function Header(props) {
     </>
   )
 
+  const yesCreate = (
+      <Nav.Item>
+        <Nav.Link href="/" style={{ color: `${colorNavItem}` }}><i className={"bi-vector-pen"} style={{ color: `${colorNavItem}` }}></i></Nav.Link >
+      </Nav.Item>
+  )
+
   return (
     <Navbar bg="light">
       <Container>
         <Navbar.Brand href="#home" className="justify-content-start" ><Link to="/" style={{ color: `${colorNavItem}` }}><i className={"bi-house-fill"}></i></Link></Navbar.Brand>
-        <Nav className={}>
-          
+        <Nav className={"justify-content-start"}>
+          {gState.token ? yesCreate : null}
         </Nav>
         <Nav className="justify-content-end" activeKey="/home">
-          {gState.token ? logout : login}
+          {gState.token ? yesUser : noUser}
         </Nav>
       </Container>
     </Navbar>
