@@ -382,7 +382,9 @@ input.loginButton {
   color: rgb(102, 51, 153);
 }
 
-
+.cc{
+  background-color:gray;
+}
 .hidden{
   display: none;
 }
