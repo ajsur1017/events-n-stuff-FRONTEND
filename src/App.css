@@ -235,6 +235,16 @@ form{
   text-align: left;
 }
 
+.eventForm{
+  display: flex;
+  flex-direction: column;
+}
+
+.editForm{
+  display: flex;
+  flex-direction: column;
+}
+
 .button{
   background-color: rgb(102, 51, 153);
   color: white;
