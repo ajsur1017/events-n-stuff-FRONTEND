@@ -32,6 +32,10 @@ Create an application that allows logged-in users to create events, publicize ev
 - Create Search Functionality
 - Incorporate Bootstrap
 
+## Original Wireframe
+
+<img src="https://imgur.com/1bIxkhH.png"/>
+
 ## Stretch Goals
 
 - Implement with Public Events API
