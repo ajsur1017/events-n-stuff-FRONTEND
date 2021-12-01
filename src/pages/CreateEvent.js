@@ -82,7 +82,7 @@ const [newForm, setNewForm] = useState({
           type="text"
           value={newForm.image}
           name="image"
-          placeholder="image"
+          placeholder="image url (add .png)"
           onChange={handleChange}
         />
         <input type="submit" className="createButton" value="Create Event" />
